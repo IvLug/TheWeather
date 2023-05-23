@@ -5,4 +5,7 @@
 //  Created by Иван Луганцов on 23.05.2023.
 //
 
-import Foundation
+import UIKit
+
+typealias EmptyClosure = () -> Void
+typealias ActionVoid = (_ action: UIAlertAction) -> Void

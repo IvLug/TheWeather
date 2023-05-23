@@ -5,4 +5,17 @@
 //  Created by Иван Луганцов on 23.05.2023.
 //
 
-import Foundation
+import UIKit
+
+protocol MainRouterProtocol: AnyObject {
+    
+}
+
+final class MainRouter {
+    
+    weak var view: MainViewProtocol?
+}
+
+extension MainRouter: MainRouterProtocol {
+    
+}

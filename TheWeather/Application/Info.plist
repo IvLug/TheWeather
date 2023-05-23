@@ -1,25 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-		<key>UISceneConfigurations</key>
-		<dict>
-			<key>UIWindowSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
-				</dict>
-			</array>
-		</dict>
-	</dict>
-</dict>
+    <dict>
+        <key>CFBundleURLTypes</key>
+        <array>
+            <dict>
+                <key>CFBundleTypeRole</key>
+                <string>Editor</string>
+                <key>CFBundleURLSchemes</key>
+                <array>
+                    <string>$(XCC_GOOGLE_URL_TYPE)</string>
+                </array>
+            </dict>
+        </array>
+        <key>NSAppTransportSecurity</key>
+        <dict>
+            <key>NSAllowsArbitraryLoads</key>
+            <true/>
+        </dict>
+        <key>UIAppFonts</key>
+        <array>
+            <string>TTNormsPro-Black.ttf</string>
+            <string>TTNormsPro-BlackItalic.ttf</string>
+            <string>TTNormsPro-Bold.ttf</string>
+            <string>TTNormsPro-BoldItalic.ttf</string>
+            <string>TTNormsPro-ExtraBlack.ttf</string>
+            <string>TTNormsPro-ExtraBlackItalic.ttf</string>
+            <string>TTNormsPro-ExtraBold.ttf</string>
+            <string>TTNormsPro-ExtraBoldItalic.ttf</string>
+            <string>TTNormsPro-ExtraLight.ttf</string>
+            <string>TTNormsPro-ExtraLightItalic.ttf</string>
+            <string>TTNormsPro-Italic.ttf</string>
+            <string>TTNormsPro-Light.ttf</string>
+            <string>TTNormsPro-LightItalic.ttf</string>
+            <string>TTNormsPro-Medium.ttf</string>
+            <string>TTNormsPro-MediumItalic.ttf</string>
+            <string>TTNormsPro-Regular.ttf</string>
+            <string>TTNormsPro-Thin.ttf</string>
+            <string>TTNormsPro-ThinItalic.ttf</string>
+        </array>
+        <key>UIBackgroundModes</key>
+        <array>
+            <string>fetch</string>
+            <string>remote-notification</string>
+        </array>
+        <key>UIFileSharingEnabled</key>
+        <true/>
+    </dict>
 </plist>
+

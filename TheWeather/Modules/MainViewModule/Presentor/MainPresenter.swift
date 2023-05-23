@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+protocol MainPresenterProtocol: AnyObject {
+    
+}
+
+class MainPresenter {
+    
+    weak var view: MainViewProtocol?
+    var router: MainRouterProtocol?
+}
+
+extension MainPresenter: MainPresenterProtocol {
+    
+}

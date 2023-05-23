@@ -5,4 +5,24 @@
 //  Created by Иван Луганцов on 23.05.2023.
 //
 
-import Foundation
+import UIKit
+
+protocol AppRouterType {
+    func showRootScreen()
+}
+
+final class AppRouter: AppRouterType {
+    private(set) var window: UIWindow
+
+    init(window: UIWindow = UIWindow()) {
+        self.window = window
+    }
+
+    func showRootScreen() {
+        let mainModule = MainScreenAssembly.assembly(navigation: false).view
+        
+        let navigationController = UINavigationController(rootViewController: mainModule)
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+    }
+}
