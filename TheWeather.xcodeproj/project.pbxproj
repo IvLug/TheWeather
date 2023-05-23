@@ -12,6 +12,11 @@
 		CA68321B2A1CFF4A002DE5C6 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68321A2A1CFF4A002DE5C6 /* Typealias.swift */; };
 		CA68321E2A1CFFE9002DE5C6 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68321D2A1CFFE9002DE5C6 /* Extension+UIViewController.swift */; };
 		CA6832202A1D0549002DE5C6 /* Extension+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68321F2A1D0549002DE5C6 /* Extension+UIApplication.swift */; };
+		CA6832272A1D2806002DE5C6 /* LaunchScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6832262A1D2806002DE5C6 /* LaunchScreenPresenter.swift */; };
+		CA6832292A1D2816002DE5C6 /* LaunchScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6832282A1D2816002DE5C6 /* LaunchScreenAssembly.swift */; };
+		CA68322B2A1D2821002DE5C6 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68322A2A1D2821002DE5C6 /* LaunchScreenView.swift */; };
+		CA68322E2A1D2B6C002DE5C6 /* LaunchScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68322D2A1D2B6C002DE5C6 /* LaunchScreenRouter.swift */; };
+		CA6832302A1D2E07002DE5C6 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68322F2A1D2E07002DE5C6 /* Extension+UIView.swift */; };
 		CAC2EAA32A1CE85B0065F27C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC2EAA22A1CE85B0065F27C /* AppDelegate.swift */; };
 		CAC2EAA72A1CE85B0065F27C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC2EAA62A1CE85B0065F27C /* MainViewController.swift */; };
 		CAC2EAAD2A1CE85B0065F27C /* TheWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAC2EAAB2A1CE85B0065F27C /* TheWeather.xcdatamodeld */; };
@@ -33,6 +38,11 @@
 		CA68321A2A1CFF4A002DE5C6 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		CA68321D2A1CFFE9002DE5C6 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		CA68321F2A1D0549002DE5C6 /* Extension+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIApplication.swift"; sourceTree = "<group>"; };
+		CA6832262A1D2806002DE5C6 /* LaunchScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenPresenter.swift; sourceTree = "<group>"; };
+		CA6832282A1D2816002DE5C6 /* LaunchScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenAssembly.swift; sourceTree = "<group>"; };
+		CA68322A2A1D2821002DE5C6 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		CA68322D2A1D2B6C002DE5C6 /* LaunchScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenRouter.swift; sourceTree = "<group>"; };
+		CA68322F2A1D2E07002DE5C6 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		CAC2EA9F2A1CE85B0065F27C /* TheWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC2EAA22A1CE85B0065F27C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAC2EAA62A1CE85B0065F27C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +76,6 @@
 				AB649329211C2ACAFFBDC474 /* Pods-TheWeather.debug.xcconfig */,
 				097E5CA20C03CAA597D7306D /* Pods-TheWeather.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,8 +92,25 @@
 			children = (
 				CA68321D2A1CFFE9002DE5C6 /* Extension+UIViewController.swift */,
 				CA68321F2A1D0549002DE5C6 /* Extension+UIApplication.swift */,
+				CA68322F2A1D2E07002DE5C6 /* Extension+UIView.swift */,
 			);
 			path = Extesions;
+			sourceTree = "<group>";
+		};
+		CA6832252A1D27E5002DE5C6 /* LaunchScreenPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				CA6832262A1D2806002DE5C6 /* LaunchScreenPresenter.swift */,
+			);
+			path = LaunchScreenPresenter;
+			sourceTree = "<group>";
+		};
+		CA68322C2A1D2B0C002DE5C6 /* LaunchScreenRouter */ = {
+			isa = PBXGroup;
+			children = (
+				CA68322D2A1D2B6C002DE5C6 /* LaunchScreenRouter.swift */,
+			);
+			path = LaunchScreenRouter;
 			sourceTree = "<group>";
 		};
 		CAC2EA962A1CE85B0065F27C = {
@@ -235,6 +261,8 @@
 		CAC2EACF2A1CEDD80065F27C /* LaunchScreen */ = {
 			isa = PBXGroup;
 			children = (
+				CA68322C2A1D2B0C002DE5C6 /* LaunchScreenRouter */,
+				CA6832252A1D27E5002DE5C6 /* LaunchScreenPresenter */,
 				CAC2EAD12A1CEE000065F27C /* LaunchScreenAssembly */,
 				CAC2EAD02A1CEDF20065F27C /* LaunchScreenView */,
 			);
@@ -244,6 +272,7 @@
 		CAC2EAD02A1CEDF20065F27C /* LaunchScreenView */ = {
 			isa = PBXGroup;
 			children = (
+				CA68322A2A1D2821002DE5C6 /* LaunchScreenView.swift */,
 			);
 			path = LaunchScreenView;
 			sourceTree = "<group>";
@@ -251,6 +280,7 @@
 		CAC2EAD12A1CEE000065F27C /* LaunchScreenAssembly */ = {
 			isa = PBXGroup;
 			children = (
+				CA6832282A1D2816002DE5C6 /* LaunchScreenAssembly.swift */,
 			);
 			path = LaunchScreenAssembly;
 			sourceTree = "<group>";
@@ -388,8 +418,13 @@
 				CAC2EAC82A1CEC330065F27C /* BaseViewController.swift in Sources */,
 				CA6832192A1CFE8C002DE5C6 /* ModuleAssembley.swift in Sources */,
 				CA6832202A1D0549002DE5C6 /* Extension+UIApplication.swift in Sources */,
+				CA68322E2A1D2B6C002DE5C6 /* LaunchScreenRouter.swift in Sources */,
 				CAC2EADA2A1CFA870065F27C /* MainRouter.swift in Sources */,
+				CA6832292A1D2816002DE5C6 /* LaunchScreenAssembly.swift in Sources */,
 				CAC2EAAD2A1CE85B0065F27C /* TheWeather.xcdatamodeld in Sources */,
+				CA6832272A1D2806002DE5C6 /* LaunchScreenPresenter.swift in Sources */,
+				CA6832302A1D2E07002DE5C6 /* Extension+UIView.swift in Sources */,
+				CA68322B2A1D2821002DE5C6 /* LaunchScreenView.swift in Sources */,
 				CAC2EACE2A1CED9A0065F27C /* MainAssembly.swift in Sources */,
 				CA68321B2A1CFF4A002DE5C6 /* Typealias.swift in Sources */,
 				CAC2EADD2A1CFBB70065F27C /* AppRouter.swift in Sources */,

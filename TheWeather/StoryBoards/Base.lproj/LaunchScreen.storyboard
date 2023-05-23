@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,15 +14,58 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpZ-Gw-9fJ">
+                                <rect key="frame" x="61.666666666666657" y="342.66666666666669" width="307" height="247.00000000000006"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1d" translatesAutoresizingMaskIntoConstraints="NO" id="Zmw-0E-5ko">
+                                        <rect key="frame" x="105" y="0.0" width="216" height="196"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="196" id="IXU-Hc-zf6"/>
+                                            <constraint firstAttribute="width" constant="216" id="NPN-y8-2Gl"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5n" translatesAutoresizingMaskIntoConstraints="NO" id="SrT-Bl-dZz">
+                                        <rect key="frame" x="0.0" y="0.0" width="307" height="247"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="247" id="YjL-KT-gjB"/>
+                                            <constraint firstAttribute="width" constant="307" id="aTM-oR-3D4"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="SrT-Bl-dZz" secondAttribute="trailing" id="06Y-N9-XCc"/>
+                                    <constraint firstAttribute="bottom" secondItem="SrT-Bl-dZz" secondAttribute="bottom" id="0eu-Xm-h2T"/>
+                                    <constraint firstItem="SrT-Bl-dZz" firstAttribute="top" secondItem="cpZ-Gw-9fJ" secondAttribute="top" id="Gud-TX-cTi"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zmw-0E-5ko" secondAttribute="bottom" constant="51" id="HVB-YC-o4A"/>
+                                    <constraint firstItem="Zmw-0E-5ko" firstAttribute="leading" secondItem="cpZ-Gw-9fJ" secondAttribute="leading" constant="105" id="Nak-UN-2xg"/>
+                                    <constraint firstItem="Zmw-0E-5ko" firstAttribute="top" secondItem="cpZ-Gw-9fJ" secondAttribute="top" id="duK-qT-hPG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zmw-0E-5ko" secondAttribute="trailing" constant="-14" id="pa3-af-mcv"/>
+                                    <constraint firstItem="SrT-Bl-dZz" firstAttribute="leading" secondItem="cpZ-Gw-9fJ" secondAttribute="leading" id="wBv-hH-UNK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cpZ-Gw-9fJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="q9v-Xr-6pE"/>
+                            <constraint firstItem="cpZ-Gw-9fJ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="utO-CR-2Z0"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="51.627906976744185" y="374.03433476394855"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1d" width="512" height="512"/>
+        <image name="5n" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

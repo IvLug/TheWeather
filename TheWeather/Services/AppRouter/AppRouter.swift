@@ -19,7 +19,7 @@ final class AppRouter: AppRouterType {
     }
 
     func showRootScreen() {
-        let mainModule = MainScreenAssembly.assembly(navigation: false).view
+        let mainModule = LaunchScreenAssembly.assembly(navigation: false).view
         
         let navigationController = UINavigationController(rootViewController: mainModule)
         window.rootViewController = navigationController
