@@ -18,7 +18,7 @@ final class LaunchScreenAssembly: ModuleAssembly {
         view = UIViewController()
     }
     
-    static func assembly(navigation: Bool = true) -> Self {
+    static func assembly(navigation: Bool = false) -> Self {
         let assembly = self.init()
         
         let view = LaunchScreenView()

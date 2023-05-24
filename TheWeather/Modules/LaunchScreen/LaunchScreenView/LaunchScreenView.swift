@@ -52,6 +52,7 @@ final class LaunchScreenView: BaseViewController {
     private func configure() {
         addSubViews()
         view.backgroundColor = .white
+        navigationController?.navigationBar.isHidden = false
     }
     
     private func addSubViews() {

@@ -19,10 +19,13 @@ final class AppRouter: AppRouterType {
     }
 
     func showRootScreen() {
-        let mainModule = LaunchScreenAssembly.assembly(navigation: false).view
+        let mainModule = LaunchScreenAssembly.assembly().view
         
-        let navigationController = UINavigationController(rootViewController: mainModule)
-        window.rootViewController = navigationController
+        window.rootViewController = mainModule
         window.makeKeyAndVisible()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            mainModule.setRootModule(TabBarAssembly.self)
+        })
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LaunchScreenPresenterProtocol: AnyObject {
-    
+
 }
 
 final class LaunchScreenPresenter {
@@ -19,5 +19,11 @@ final class LaunchScreenPresenter {
 }
 
 extension LaunchScreenPresenter: LaunchScreenPresenterProtocol {
+    
+}
+
+//TODO: Routing
+extension LaunchScreenPresenter {
+    
     
 }

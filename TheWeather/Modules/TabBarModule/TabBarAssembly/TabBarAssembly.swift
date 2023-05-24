@@ -1,18 +1,18 @@
 //
-//  MainAssembly.swift
+//  TabBarAssembly.swift
 //  TheWeather
 //
-//  Created by Иван Луганцов on 23.05.2023.
+//  Created by Иван Луганцов on 24.05.2023.
 //
 
 import UIKit
 
-final class MainScreenAssembly: ModuleAssembly {
+final class TabBarAssembly: ModuleAssembly {
     
     var view: UIViewController
-    
-    lazy var presenter = MainPresenter()
-    lazy var router = MainRouter()
+//
+//    lazy var presenter = TabBarPresenter()
+//    lazy var router = LaunchScreenRouter()
     
     private init() {
         view = UIViewController()
@@ -21,21 +21,20 @@ final class MainScreenAssembly: ModuleAssembly {
     static func assembly(navigation: Bool = false) -> Self {
         let assembly = self.init()
         
-        let view = MainViewController()
+        let view = TabBarViewController()
         
         assembly.view = view
         
-        view.presenter = assembly.presenter
-                
-        assembly.presenter.view = view
-        assembly.presenter.router = assembly.router
-        
-        assembly.router.view = view
+//        view.presenter = assembly.presenter
+//                
+//        assembly.presenter.view = view
+//        assembly.presenter.router = assembly.router
+//        
+//        assembly.router.view = view
 
         guard navigation else { return assembly }
         
         let navigationController = UINavigationController(rootViewController: view)
-        navigationController.navigationControllerType = .main
         
         assembly.view = navigationController
         

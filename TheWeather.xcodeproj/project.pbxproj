@@ -17,6 +17,15 @@
 		CA68322B2A1D2821002DE5C6 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68322A2A1D2821002DE5C6 /* LaunchScreenView.swift */; };
 		CA68322E2A1D2B6C002DE5C6 /* LaunchScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68322D2A1D2B6C002DE5C6 /* LaunchScreenRouter.swift */; };
 		CA6832302A1D2E07002DE5C6 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68322F2A1D2E07002DE5C6 /* Extension+UIView.swift */; };
+		CA6832362A1D482D002DE5C6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6832352A1D482D002DE5C6 /* TabBarViewController.swift */; };
+		CA6832392A1D5487002DE5C6 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6832382A1D5487002DE5C6 /* CustomTabBar.swift */; };
+		CA68323B2A1D57B1002DE5C6 /* TabbarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68323A2A1D57B1002DE5C6 /* TabbarModel.swift */; };
+		CA68323D2A1D58C7002DE5C6 /* TabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68323C2A1D58C7002DE5C6 /* TabbarItem.swift */; };
+		CA68323F2A1D5A24002DE5C6 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA68323E2A1D5A24002DE5C6 /* Extension+UIColor.swift */; };
+		CA6832432A1D6252002DE5C6 /* Extension+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6832422A1D6252002DE5C6 /* Extension+UIImage.swift */; };
+		CA6832452A1D6718002DE5C6 /* BaseTabbarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6832442A1D6718002DE5C6 /* BaseTabbarItem.swift */; };
+		CA6832472A1D6BDC002DE5C6 /* Extension+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6832462A1D6BDC002DE5C6 /* Extension+UINavigationController.swift */; };
+		CA6832492A1D8237002DE5C6 /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6832482A1D8237002DE5C6 /* TabBarAssembly.swift */; };
 		CAC2EAA32A1CE85B0065F27C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC2EAA22A1CE85B0065F27C /* AppDelegate.swift */; };
 		CAC2EAA72A1CE85B0065F27C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC2EAA62A1CE85B0065F27C /* MainViewController.swift */; };
 		CAC2EAAD2A1CE85B0065F27C /* TheWeather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CAC2EAAB2A1CE85B0065F27C /* TheWeather.xcdatamodeld */; };
@@ -43,6 +52,15 @@
 		CA68322A2A1D2821002DE5C6 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		CA68322D2A1D2B6C002DE5C6 /* LaunchScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenRouter.swift; sourceTree = "<group>"; };
 		CA68322F2A1D2E07002DE5C6 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		CA6832352A1D482D002DE5C6 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		CA6832382A1D5487002DE5C6 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		CA68323A2A1D57B1002DE5C6 /* TabbarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarModel.swift; sourceTree = "<group>"; };
+		CA68323C2A1D58C7002DE5C6 /* TabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarItem.swift; sourceTree = "<group>"; };
+		CA68323E2A1D5A24002DE5C6 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		CA6832422A1D6252002DE5C6 /* Extension+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIImage.swift"; sourceTree = "<group>"; };
+		CA6832442A1D6718002DE5C6 /* BaseTabbarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarItem.swift; sourceTree = "<group>"; };
+		CA6832462A1D6BDC002DE5C6 /* Extension+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UINavigationController.swift"; sourceTree = "<group>"; };
+		CA6832482A1D8237002DE5C6 /* TabBarAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarAssembly.swift; sourceTree = "<group>"; };
 		CAC2EA9F2A1CE85B0065F27C /* TheWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC2EAA22A1CE85B0065F27C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAC2EAA62A1CE85B0065F27C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +111,9 @@
 				CA68321D2A1CFFE9002DE5C6 /* Extension+UIViewController.swift */,
 				CA68321F2A1D0549002DE5C6 /* Extension+UIApplication.swift */,
 				CA68322F2A1D2E07002DE5C6 /* Extension+UIView.swift */,
+				CA68323E2A1D5A24002DE5C6 /* Extension+UIColor.swift */,
+				CA6832422A1D6252002DE5C6 /* Extension+UIImage.swift */,
+				CA6832462A1D6BDC002DE5C6 /* Extension+UINavigationController.swift */,
 			);
 			path = Extesions;
 			sourceTree = "<group>";
@@ -111,6 +132,47 @@
 				CA68322D2A1D2B6C002DE5C6 /* LaunchScreenRouter.swift */,
 			);
 			path = LaunchScreenRouter;
+			sourceTree = "<group>";
+		};
+		CA6832312A1D46DA002DE5C6 /* TabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				CA6832372A1D546F002DE5C6 /* SubViews */,
+				CA6832352A1D482D002DE5C6 /* TabBarViewController.swift */,
+			);
+			path = TabBarView;
+			sourceTree = "<group>";
+		};
+		CA6832322A1D46E2002DE5C6 /* TabBarPresenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBarPresenter;
+			sourceTree = "<group>";
+		};
+		CA6832332A1D46F2002DE5C6 /* TabBarAssembly */ = {
+			isa = PBXGroup;
+			children = (
+				CA6832482A1D8237002DE5C6 /* TabBarAssembly.swift */,
+			);
+			path = TabBarAssembly;
+			sourceTree = "<group>";
+		};
+		CA6832342A1D4703002DE5C6 /* TabBarRouter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TabBarRouter;
+			sourceTree = "<group>";
+		};
+		CA6832372A1D546F002DE5C6 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				CA6832382A1D5487002DE5C6 /* CustomTabBar.swift */,
+				CA68323C2A1D58C7002DE5C6 /* TabbarItem.swift */,
+				CA6832442A1D6718002DE5C6 /* BaseTabbarItem.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		CAC2EA962A1CE85B0065F27C = {
@@ -139,7 +201,7 @@
 				CA68321C2A1CFFBE002DE5C6 /* Extesions */,
 				CAC2EAC92A1CED360065F27C /* Protocols */,
 				CAC2EAC62A1CEC140065F27C /* Controllers */,
-				CAC2EABD2A1CE8E40065F27C /* StoryBoards */,
+				CAC2EABD2A1CE8E40065F27C /* Storyboards */,
 				CAC2EABA2A1CE8AD0065F27C /* Models */,
 				CAC2EAB92A1CE89C0065F27C /* Modules */,
 			);
@@ -160,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				CA68321A2A1CFF4A002DE5C6 /* Typealias.swift */,
+				CA68323A2A1D57B1002DE5C6 /* TabbarModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -184,12 +247,12 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		CAC2EABD2A1CE8E40065F27C /* StoryBoards */ = {
+		CAC2EABD2A1CE8E40065F27C /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				CAC2EAB02A1CE85C0065F27C /* LaunchScreen.storyboard */,
 			);
-			path = StoryBoards;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		CAC2EABE2A1CE9ED0065F27C /* NetworkService */ = {
@@ -202,6 +265,10 @@
 		CAC2EABF2A1CEA0D0065F27C /* TabBarModule */ = {
 			isa = PBXGroup;
 			children = (
+				CA6832342A1D4703002DE5C6 /* TabBarRouter */,
+				CA6832332A1D46F2002DE5C6 /* TabBarAssembly */,
+				CA6832322A1D46E2002DE5C6 /* TabBarPresenter */,
+				CA6832312A1D46DA002DE5C6 /* TabBarView */,
 			);
 			path = TabBarModule;
 			sourceTree = "<group>";
@@ -211,26 +278,26 @@
 			children = (
 				CAC2EAD82A1CFA710065F27C /* MainRouter */,
 				CAC2EACC2A1CED7E0065F27C /* MainAssembly */,
-				CAC2EAC22A1CEA3F0065F27C /* Presentor */,
-				CAC2EAC12A1CEA360065F27C /* View */,
+				CAC2EAC22A1CEA3F0065F27C /* MainPresentor */,
+				CAC2EAC12A1CEA360065F27C /* MainView */,
 			);
 			path = MainViewModule;
 			sourceTree = "<group>";
 		};
-		CAC2EAC12A1CEA360065F27C /* View */ = {
+		CAC2EAC12A1CEA360065F27C /* MainView */ = {
 			isa = PBXGroup;
 			children = (
 				CAC2EAA62A1CE85B0065F27C /* MainViewController.swift */,
 			);
-			path = View;
+			path = MainView;
 			sourceTree = "<group>";
 		};
-		CAC2EAC22A1CEA3F0065F27C /* Presentor */ = {
+		CAC2EAC22A1CEA3F0065F27C /* MainPresentor */ = {
 			isa = PBXGroup;
 			children = (
 				CAC2EAD22A1CEE690065F27C /* MainPresenter.swift */,
 			);
-			path = Presentor;
+			path = MainPresentor;
 			sourceTree = "<group>";
 		};
 		CAC2EAC62A1CEC140065F27C /* Controllers */ = {
@@ -420,17 +487,26 @@
 				CA6832202A1D0549002DE5C6 /* Extension+UIApplication.swift in Sources */,
 				CA68322E2A1D2B6C002DE5C6 /* LaunchScreenRouter.swift in Sources */,
 				CAC2EADA2A1CFA870065F27C /* MainRouter.swift in Sources */,
+				CA6832432A1D6252002DE5C6 /* Extension+UIImage.swift in Sources */,
 				CA6832292A1D2816002DE5C6 /* LaunchScreenAssembly.swift in Sources */,
+				CA6832362A1D482D002DE5C6 /* TabBarViewController.swift in Sources */,
 				CAC2EAAD2A1CE85B0065F27C /* TheWeather.xcdatamodeld in Sources */,
 				CA6832272A1D2806002DE5C6 /* LaunchScreenPresenter.swift in Sources */,
 				CA6832302A1D2E07002DE5C6 /* Extension+UIView.swift in Sources */,
+				CA68323B2A1D57B1002DE5C6 /* TabbarModel.swift in Sources */,
 				CA68322B2A1D2821002DE5C6 /* LaunchScreenView.swift in Sources */,
 				CAC2EACE2A1CED9A0065F27C /* MainAssembly.swift in Sources */,
 				CA68321B2A1CFF4A002DE5C6 /* Typealias.swift in Sources */,
+				CA68323F2A1D5A24002DE5C6 /* Extension+UIColor.swift in Sources */,
+				CA68323D2A1D58C7002DE5C6 /* TabbarItem.swift in Sources */,
 				CAC2EADD2A1CFBB70065F27C /* AppRouter.swift in Sources */,
+				CA6832452A1D6718002DE5C6 /* BaseTabbarItem.swift in Sources */,
+				CA6832492A1D8237002DE5C6 /* TabBarAssembly.swift in Sources */,
 				CAC2EADF2A1CFD360065F27C /* View.swift in Sources */,
 				CA68321E2A1CFFE9002DE5C6 /* Extension+UIViewController.swift in Sources */,
+				CA6832392A1D5487002DE5C6 /* CustomTabBar.swift in Sources */,
 				CAC2EAD32A1CEE690065F27C /* MainPresenter.swift in Sources */,
+				CA6832472A1D6BDC002DE5C6 /* Extension+UINavigationController.swift in Sources */,
 				CAC2EAA72A1CE85B0065F27C /* MainViewController.swift in Sources */,
 				CAC2EAA32A1CE85B0065F27C /* AppDelegate.swift in Sources */,
 			);

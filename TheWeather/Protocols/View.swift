@@ -91,11 +91,4 @@ extension View {
         
         navigationController?.present(alert, animated: true)
     }
-    
-    @discardableResult
-    func setRootModule<T: ModuleAssembly>(_ module: T.Type) -> T {
-        let module = T.assembly(navigation: false)
-        UIApplication.setRootViewController(module.view)
-        return module
-    }
 }

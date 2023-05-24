@@ -20,8 +20,8 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        configure()
         label.text = "Hello"
-        addSubViews()
         
         view.backgroundColor = .white
         
@@ -33,6 +33,15 @@ class MainViewController: BaseViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         setConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    private func configure() {
+        addSubViews()
     }
     
     private func addSubViews() {

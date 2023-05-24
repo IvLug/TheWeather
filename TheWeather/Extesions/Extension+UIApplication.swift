@@ -10,11 +10,11 @@ import UIKit
 extension UIApplication {
 
     class func setRootViewController(_ vc: UIViewController) {
-        if let nav = self.shared.currentUIWindow?.rootViewController as? UINavigationController {
+        if let nav = UIApplication.shared.currentUIWindow?.rootViewController as? UINavigationController {
             nav.viewControllers = [vc]
         } else {
-            self.shared.currentUIWindow?.rootViewController = UINavigationController(rootViewController: vc)
-            self.shared.currentUIWindow?.makeKeyAndVisible()
+            UIApplication.shared.currentUIWindow?.rootViewController = UINavigationController(rootViewController: vc)
+            UIApplication.shared.currentUIWindow?.makeKeyAndVisible()
         }
     }
     
