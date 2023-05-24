@@ -22,7 +22,7 @@ class TabbarItem: BaseTabbarItem {
         configure()
         shouldBeSelected = model.shouldBeSelected
         setSelected()
-        button.tintColor = shouldBeSelected ? model.selectedTintColor : model.unselectedTintColor
+        button.tintColor = model.unselectedTintColor
     }
     
     private func configure() {

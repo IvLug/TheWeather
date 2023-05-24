@@ -89,7 +89,8 @@ extension CustomTabBar {
             addSubview(button)
             button.snp.makeConstraints {
                 $0.width.height.equalTo(80)
-                $0.centerY.centerX.equalToSuperview()
+                $0.centerX.equalToSuperview()
+                $0.bottom.equalToSuperview().inset(8)
             }
             button.setImage(item.image, for: .normal)
         default:
@@ -112,8 +113,8 @@ extension CustomTabBar {
             UIView.animate(withDuration: 0.6) {
                 self.button.transform = CGAffineTransform.identity
             }
-        })
-        delegate?.tabBarItemViewDidTouched(model: model)
+        })        
+        tabBarItemViewDidTouched(model: model)
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
@@ -127,16 +128,24 @@ extension CustomTabBar {
 extension CustomTabBar: TabBarItemViewProtocol {
     
     func tabBarItemViewDidTouched(model: TabBarItem) {
-        
         itemViews.forEach { view in
-            if view.model?.index == model.index {
-                view.shouldBeSelected = true
-            } else {
-                view.shouldBeSelected = false
+            switch model.index {
+            case .location:
+                if view.model?.index == .main {
+                    view.shouldBeSelected = true
+                } else {
+                    view.shouldBeSelected = false
+                }
+            default:
+                if view.model?.index == model.index {
+                    view.shouldBeSelected = true
+                } else {
+                    view.shouldBeSelected = false
+                }
             }
+
             view.setSelected()
         }
-        
         delegate?.tabBarItemViewDidTouched(model: model)
     }
 }
