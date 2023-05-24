@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIViewController {
-    
     private struct AssociatedKeys {
         static var navigationControllerTypeKey = "navigationControllerTypeKey"
     }
@@ -20,5 +19,15 @@ extension UIViewController {
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.navigationControllerTypeKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc public func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

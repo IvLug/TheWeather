@@ -9,3 +9,4 @@ import UIKit
 
 typealias EmptyClosure = () -> Void
 typealias ActionVoid = (_ action: UIAlertAction) -> Void
+typealias TextFieldVoid = (_ text: String?) -> Void

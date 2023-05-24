@@ -113,14 +113,12 @@ extension CustomTabBar {
             UIView.animate(withDuration: 0.6) {
                 self.button.transform = CGAffineTransform.identity
             }
-        })        
+        })
         tabBarItemViewDidTouched(model: model)
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         guard !clipsToBounds && !isHidden && alpha > 0 else { return nil }
-        
-        print(self.button.frame.contains(point))
         return self.button.frame.contains(point) ? self.button : super.hitTest(point, with: event)
     }
 }
@@ -143,7 +141,6 @@ extension CustomTabBar: TabBarItemViewProtocol {
                     view.shouldBeSelected = false
                 }
             }
-
             view.setSelected()
         }
         delegate?.tabBarItemViewDidTouched(model: model)

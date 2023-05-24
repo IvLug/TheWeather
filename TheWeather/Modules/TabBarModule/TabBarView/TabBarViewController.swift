@@ -60,8 +60,7 @@ extension TabBarViewController {
         let unselectedImageColor = UIColor.lightGray
         
         let mainModule = MainScreenAssembly.assembly(navigation: false).view
-        let test = LaunchScreenAssembly.assembly(navigation: false).view
-        let test2 = LaunchScreenAssembly.assembly(navigation: false).view
+        let forecastModule = ForecastScreenAssembly.assembly(navigation: false).view
         
         let mainModel = TabBarItem(index: .main,
                                    title: "Main",
@@ -77,7 +76,7 @@ extension TabBarViewController {
                                   selectedTintColor: selectedColor,
                                   unselectedTintColor: unselectedImageColor,
                                   shouldBeSelected: false,
-                                  controller: test)
+                                  controller: forecastModule)
         
         let location = TabBarItem(index: .location,
                                   title: "",
@@ -85,7 +84,7 @@ extension TabBarViewController {
                                   selectedTintColor: selectedColor,
                                   unselectedTintColor: unselectedImageColor,
                                   shouldBeSelected: true,
-                                  controller: test2)
+                                  controller: mainModule)
         
         items.append(contentsOf: [
             mainModel,
