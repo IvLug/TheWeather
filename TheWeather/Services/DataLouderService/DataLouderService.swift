@@ -27,7 +27,7 @@ extension DataLouderService {
         
     func loadData(completion: (() -> Void)? = nil) {
        
-        guard let cerrentCity = dataStorage.currentCity else {
+        guard let cerrentCity = dataStorage.currentCity?.lowercased() else {
             completion?()
             return
         }
@@ -55,37 +55,33 @@ extension DataLouderService {
 extension DataLouderService {
     
     private func fetchCurrentWeather(city: String, completion: (() -> Void)? = nil) {
-//        getCurrentWeather(cityName: city) { [weak self] result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let success):
-//                DispatchQueue.global().async {
-//                    self.dataStorage.currentWeatherData = success
-//                }
-//            case .failure(let failure):
-//                print(failure.localizedDescription)
-//            }
-//            completion?()
-//        }
-        
-        completion?()
+        getCurrentWeather(cityName: city) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let success):
+                DispatchQueue.global().async {
+                    self.dataStorage.currentWeatherData = success
+                }
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+            completion?()
+        }
     }
     
     private func fetchDeylyWeather(city: String, completion: (() -> Void)? = nil) {
-//        getDeylyWeather(cityName: city) { [weak self]  result in
-//            guard let self = self else { return }
-//            switch result {
-//            case .success(let success):
-//                DispatchQueue.global().async {
-//                    self.dataStorage.forecastData = success
-//                }
-//            case .failure(let failure):
-//                print(failure.localizedDescription)
-//            }
-//            completion?()
-//        }
-        
-        completion?()
+        getDeylyWeather(cityName: city) { [weak self]  result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let success):
+                DispatchQueue.global().async {
+                    self.dataStorage.forecastData = success
+                }
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+            completion?()
+        }
     }
 }
 

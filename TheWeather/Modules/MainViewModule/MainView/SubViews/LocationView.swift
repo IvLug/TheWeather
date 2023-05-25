@@ -87,7 +87,7 @@ final class LocationView: UIView {
 
 extension LocationView {
     func setData(model: Weather) {
-        cityLabel.text = model.cityName
-        dateLabel.text = Date().formateDate(timezone: model.timezone ?? "")
+        cityLabel.text = model.city_name
+        dateLabel.text = Date().formateDateFull(timezone: model.timezone ?? "")
     }
 }

@@ -250,7 +250,7 @@
 		CAB460552A1E7AAC00C0C5EC /* ForecastViewModule */ = {
 			isa = PBXGroup;
 			children = (
-				CAB460562A1E7AAC00C0C5EC /* ForecastPresentor */,
+				CAB460562A1E7AAC00C0C5EC /* ForecastPresenter */,
 				CAB460582A1E7AAC00C0C5EC /* ForecastAssembly */,
 				CAB4605A2A1E7AAC00C0C5EC /* ForecastRouter */,
 				CAB4605C2A1E7AAC00C0C5EC /* ForecastView */,
@@ -258,12 +258,12 @@
 			path = ForecastViewModule;
 			sourceTree = "<group>";
 		};
-		CAB460562A1E7AAC00C0C5EC /* ForecastPresentor */ = {
+		CAB460562A1E7AAC00C0C5EC /* ForecastPresenter */ = {
 			isa = PBXGroup;
 			children = (
 				CAB460572A1E7AAC00C0C5EC /* ForecastPresenter.swift */,
 			);
-			path = ForecastPresentor;
+			path = ForecastPresenter;
 			sourceTree = "<group>";
 		};
 		CAB460582A1E7AAC00C0C5EC /* ForecastAssembly */ = {
@@ -368,10 +368,10 @@
 		CAC2EAB92A1CE89C0065F27C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				CAC2EAC02A1CEA1D0065F27C /* MainViewModule */,
 				CAB460552A1E7AAC00C0C5EC /* ForecastViewModule */,
 				CAC2EACF2A1CEDD80065F27C /* LaunchScreen */,
 				CAC2EABF2A1CEA0D0065F27C /* TabBarModule */,
-				CAC2EAC02A1CEA1D0065F27C /* MainViewModule */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -448,7 +448,7 @@
 			children = (
 				CAC2EAD82A1CFA710065F27C /* MainRouter */,
 				CAC2EACC2A1CED7E0065F27C /* MainAssembly */,
-				CAC2EAC22A1CEA3F0065F27C /* MainPresentor */,
+				CAC2EAC22A1CEA3F0065F27C /* MainPresenter */,
 				CAC2EAC12A1CEA360065F27C /* MainView */,
 			);
 			path = MainViewModule;
@@ -463,12 +463,12 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
-		CAC2EAC22A1CEA3F0065F27C /* MainPresentor */ = {
+		CAC2EAC22A1CEA3F0065F27C /* MainPresenter */ = {
 			isa = PBXGroup;
 			children = (
 				CAC2EAD22A1CEE690065F27C /* MainPresenter.swift */,
 			);
-			path = MainPresentor;
+			path = MainPresenter;
 			sourceTree = "<group>";
 		};
 		CAC2EAC62A1CEC140065F27C /* Controllers */ = {

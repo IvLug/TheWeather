@@ -187,7 +187,7 @@ extension DescriptionWeatherView {
             case .sunset:
                 label.text = model.sunset
             case .wind:
-                label.text = "\(model.windSpeed ?? 0) m/s"
+                label.text = "\(model.wind_speed ?? 0) m/s"
             case .rein:
                 label.text = "\(model.clouds ?? 0) %"
             }

@@ -16,13 +16,20 @@ enum DayPeriod: String {
 
 extension Date {
     
-    func formateDate(timezone: String) -> String {
+    func formateDateFull(timezone: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(identifier: timezone)
         dateFormatter.dateFormat = "MMM d, EEE, hh:mm a"
         dateFormatter.locale = Locale.current
         
         return dateFormatter.string(from: self)
+    }
+    
+    func formateDate(timestamp: Int) -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        return dateFormatter.string(from: date)
     }
     
     func getDayPeriod(timezone: String, sunrise: String, sunset: String) -> DayPeriod {

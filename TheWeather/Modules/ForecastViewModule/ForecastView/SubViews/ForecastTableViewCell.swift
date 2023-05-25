@@ -99,9 +99,13 @@ final class ForecastTableViewCell: UITableViewCell {
 
 extension ForecastTableViewCell {
     
-    func setData() {
-        weatherImage.image = UIImage(systemName: "wind")
-        weatherTemp.text = "19.1°"
-        weatherDay.text = "May 24, Wed, 11:24 AM"
+    func setData(model: WeatherForecast) {
+        let imageName = model.weather?.getIcon()
+        let dateTS = model.ts
+        
+        weatherImage.image = UIImage(systemName: imageName ?? "")
+        weatherTemp.text = "\(model.temp ?? 0)°"
+        weatherDay.text = Date().formateDate(timestamp: model.ts ?? 0)
+        
     }
 }

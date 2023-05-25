@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ForecastViewProtocol: View {
-    
+    func updateData()
 }
 
 class ForecastViewController: BaseViewController {
@@ -44,6 +44,7 @@ class ForecastViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        presenter.viewDidLoad()
     }
     
     override func viewWillLayoutSubviews() {
@@ -99,18 +100,21 @@ extension ForecastViewController: UITableViewDelegate {
 extension ForecastViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        7
+        presenter.forecastWeatherData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ForecastTableViewCell = tableView.dequeueCell(at: indexPath)
-        cell.setData()
+        
+        let model = presenter.forecastWeatherData[indexPath.row]
+        cell.setData(model: model)
         return cell
     }
 }
 
-
-
 extension ForecastViewController: ForecastViewProtocol {
     
+    func updateData() {
+        tableView.reloadData()
+    }
 }

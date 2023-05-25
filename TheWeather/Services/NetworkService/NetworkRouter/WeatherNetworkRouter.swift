@@ -26,7 +26,7 @@ enum WeatherNetworkRouter: APIRouter {
         ]
         return headers
     }
-    
+  
     var parameters: Parameters? {
         var params: Parameters = [:]
         switch self {

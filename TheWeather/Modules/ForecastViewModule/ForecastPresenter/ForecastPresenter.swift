@@ -1,5 +1,5 @@
 //
-//  MainPresenter.swift
+//  ForecastPresenter.swift
 //  TheWeather
 //
 //  Created by Иван Луганцов on 23.05.2023.
@@ -7,20 +7,18 @@
 
 import Foundation
 
-protocol MainPresenterProtocol: AnyObject {
+protocol ForecastPresenterProtocol: AnyObject {
     func viewDidLoad()
-    var weatherData: Weather? { get }
     var forecastWeatherData: [WeatherForecast] { get }
 }
 
-class MainPresenter {
+class ForecastPresenter {
     
-    weak var view: MainViewProtocol?
-    var router: MainRouterProtocol?
+    weak var view: ForecastViewProtocol?
+    var router: ForecastRouterProtocol?
     
     private let dataStorage: DataStorage
     
-    var weatherData: Weather?
     var forecastWeatherData: [WeatherForecast] = []
     
     init() {
@@ -28,15 +26,14 @@ class MainPresenter {
     }
 }
 
-extension MainPresenter {
+extension ForecastPresenter {
     
     func getDataFromStorage() {
-        weatherData = Weather() // dataStorage.currentWeatherData?.data?.first
-        forecastWeatherData = dataStorage.forecastData?.data?.compactMap({ $0 }) ?? []
+        forecastWeatherData = dataStorage.forecastData?.data ?? []
     }
 }
 
-extension MainPresenter: MainPresenterProtocol {
+extension ForecastPresenter: ForecastPresenterProtocol {
     
     func viewDidLoad() {
         getDataFromStorage()
