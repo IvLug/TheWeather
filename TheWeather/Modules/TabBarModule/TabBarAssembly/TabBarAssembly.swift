@@ -11,7 +11,7 @@ final class TabBarAssembly: ModuleAssembly {
     
     var view: UIViewController
 
-    var presenter: ApplicationPresenterProtocol = ApplicationPresenter()
+    var presenter: ApplicationPresenterProtocol = ApplicationPresenter.shared
     
     private init() {
         view = UIViewController()
@@ -34,4 +34,3 @@ final class TabBarAssembly: ModuleAssembly {
         return assembly
     }
 }
-//  <+55.75578600,+37.61763300> +/- 5.00m (speed -1.00 mps / course -1.00) @ 5/25/23, 8:24:54 PM Georgia Standard Time

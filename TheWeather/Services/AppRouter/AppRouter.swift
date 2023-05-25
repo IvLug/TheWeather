@@ -17,7 +17,7 @@ final class AppRouter: AppRouterType {
 
     init(window: UIWindow = UIWindow()) {
         self.window = window
-        addPresenter = ApplicationPresenter()
+        addPresenter = ApplicationPresenter.shared
         configure()
     }
     
@@ -35,8 +35,8 @@ final class AppRouter: AppRouterType {
     }
 
     func showMainFlow() {
-        let module = TabBarAssembly.assembly().view
-        self.window.rootViewController = module
+        let module = TabBarAssembly.assembly()
+        self.window.rootViewController = module.view
         self.window.makeKeyAndVisible()
     }
 }

@@ -17,7 +17,7 @@ final class DataLouderService {
     weak var delegate: DataLouderServiceDelegate?
         
     private let dataStorage: DataStorage
-    
+        
     init() {
         dataStorage = DataStorage.shared
     }
@@ -25,13 +25,12 @@ final class DataLouderService {
 
 extension DataLouderService {
         
-    func loadData(isUpdate: Bool = false, completion: (() -> Void)? = nil) {
-       
+    func loadData(completion: (() -> Void)? = nil) {
         guard let cerrentCity = dataStorage.currentCity?.lowercased() else {
             completion?()
             return
         }
-        
+       
         let group = DispatchGroup()
         
         group.enter()
@@ -47,7 +46,6 @@ extension DataLouderService {
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
             completion?()
-            guard !isUpdate else { return }
             self.delegate?.dataDidLoad()
         }
     }
@@ -56,33 +54,35 @@ extension DataLouderService {
 extension DataLouderService {
     
     private func fetchCurrentWeather(city: String, completion: (() -> Void)? = nil) {
-        getCurrentWeather(cityName: city) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let success):
-                DispatchQueue.global().async {
-                    self.dataStorage.currentWeatherData = success
-                }
-            case .failure(let failure):
-                print(failure.localizedDescription)
-            }
-            completion?()
-        }
+//        getCurrentWeather(cityName: city) { [weak self] result in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success(let success):
+//                DispatchQueue.global().async {
+//                    self.dataStorage.currentWeatherData = success
+//                }
+//            case .failure(let failure):
+//                print(failure.localizedDescription)
+//            }
+//            completion?()
+//        }
+        completion?()
     }
     
     private func fetchDeylyWeather(city: String, completion: (() -> Void)? = nil) {
-        getDeylyWeather(cityName: city) { [weak self]  result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let success):
-                DispatchQueue.global().async {
-                    self.dataStorage.forecastData = success
-                }
-            case .failure(let failure):
-                print(failure.localizedDescription)
-            }
-            completion?()
-        }
+//        getDeylyWeather(cityName: city) { [weak self]  result in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success(let success):
+//                DispatchQueue.global().async {
+//                    self.dataStorage.forecastData = success
+//                }
+//            case .failure(let failure):
+//                print(failure.localizedDescription)
+//            }
+//            completion?()
+//        }
+        completion?()
     }
 }
 

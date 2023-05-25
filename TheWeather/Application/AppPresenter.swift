@@ -15,11 +15,17 @@ class ApplicationPresenter {
     
     var callBack: EmptyClosure?
     
+    static let shared: ApplicationPresenter = {
+        ApplicationPresenter()
+    }()
+    
     private let locationService = LocationService.shared
     private let dataStorage = DataStorage.shared
     private let dataLouder = DataLouderService()
     
-    init() {
+    var isUpdate = false
+    
+    private init() {
         dataLouder.delegate = self
         configure()
     }
@@ -29,15 +35,6 @@ class ApplicationPresenter {
             guard let self = self else { return }
             DispatchQueue.global().async {
                 self.dataLouder.loadData()
-            }
-        }
-        
-        locationService.isUpdateLocate = { [weak self] in
-            guard let self = self else { return }
-            DispatchQueue.global(qos: .userInitiated).async {
-                self.dataLouder.loadData(isUpdate: true) {
-                    self.dataStorage.updatedData()
-                }
             }
         }
     }
@@ -53,6 +50,7 @@ extension ApplicationPresenter: ApplicationPresenterProtocol {
 extension ApplicationPresenter: DataLouderServiceDelegate {
     
     func dataDidLoad() {
-        callBack?()
+        isUpdate ? dataStorage.updatedData() : callBack?()
+        isUpdate = true
     }
 }

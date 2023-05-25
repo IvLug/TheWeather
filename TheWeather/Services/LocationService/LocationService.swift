@@ -13,7 +13,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     private var currentLocation: CLLocation?
     
     lazy var isLoadLocate: BoolVoid? = nil
-    lazy var isUpdateLocate: EmptyClosure? = nil
+    
+    private var isUpdate = false
     
      var authorizationStatus: CLAuthorizationStatus {
         CLLocationManager.authorizationStatus()
@@ -60,14 +61,16 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
     func updateLocate() {
+        isUpdate = true
         locationManager.startUpdatingLocation()
     }
  
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard isUpdate else { return }
+        isUpdate = false
+        locationManager.stopUpdatingLocation()
         currentLocation = manager.location
         getCity()
-        locationManager.stopUpdatingLocation()
-        isUpdateLocate?()
     }
 }
 

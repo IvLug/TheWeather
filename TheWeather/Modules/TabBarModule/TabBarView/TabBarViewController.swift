@@ -12,7 +12,7 @@ class TabBarViewController: UIViewController {
     
     private weak var currentController: UIViewController?
     
-    weak var presenter: ApplicationPresenterProtocol?
+    var presenter: ApplicationPresenterProtocol?
     
     var items = [TabBarItem]()
     

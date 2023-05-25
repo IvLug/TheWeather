@@ -27,6 +27,7 @@ class MainPresenter {
     
     init() {
         self.dataStorage = DataStorage.shared
+        configure()
     }
 }
 
