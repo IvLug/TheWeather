@@ -59,8 +59,8 @@ extension TabBarViewController {
         let selectedColor = UIColor.brandOrange
         let unselectedImageColor = UIColor.lightGray
         
-        let mainModule = MainScreenAssembly.assembly(navigation: false).view
-        let forecastModule = ForecastScreenAssembly.assembly(navigation: false).view
+        let mainModule = MainScreenAssembly.assembly(navigation: true).view
+        let forecastModule = ForecastScreenAssembly.assembly(navigation: true).view
         
         let mainModel = TabBarItem(index: .main,
                                    title: "Main",

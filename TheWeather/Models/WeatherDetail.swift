@@ -8,8 +8,8 @@
 import Foundation
 
 struct WeatherDetail: Codable {
-    var description: String?
-    var icon: String?
+    var description: String? = "Broken clouds"
+    var icon: String? = "c03d"
     
     func getIcon() -> String {
         

@@ -13,19 +13,30 @@ protocol AppRouterType {
 
 final class AppRouter: AppRouterType {
     private(set) var window: UIWindow
+    let addPresenter: ApplicationPresenter
 
     init(window: UIWindow = UIWindow()) {
         self.window = window
+        addPresenter = ApplicationPresenter()
+        configure()
     }
-
+    
+    private func configure() {
+        addPresenter.callBack = {  [weak self] in
+            guard let self = self else { return }
+            self.showMainFlow()
+        }
+    }
+    
     func showRootScreen() {
         let mainModule = LaunchScreenAssembly.assembly().view
-        
         window.rootViewController = mainModule
         window.makeKeyAndVisible()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-            mainModule.setRootModule(TabBarAssembly.self)
-        })
+    }
+
+    func showMainFlow() {
+        let module = TabBarAssembly.assembly().view
+        self.window.rootViewController = module
+        self.window.makeKeyAndVisible()
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainViewProtocol: View {
-    
+    func updateData()
 }
 
 class MainViewController: BaseViewController {
@@ -33,7 +33,7 @@ class MainViewController: BaseViewController {
         return view
     }()
     
-    private lazy var locationrView: LocationView = {
+    private lazy var locationView: LocationView = {
         let view = LocationView()
         return view
     }()
@@ -45,6 +45,7 @@ class MainViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoad()
         configure()
     }
     
@@ -67,7 +68,7 @@ class MainViewController: BaseViewController {
     private func addSubViews() {
         view.addSubview(backgroundImage)
         view.addSubview(searchInput)
-        view.addSubview(locationrView)
+        view.addSubview(locationView)
         view.addSubview(descriptionWeatherView)
     }
     
@@ -86,7 +87,7 @@ class MainViewController: BaseViewController {
             $0.left.equalToSuperview().inset(16)
         }
         
-        locationrView.snp.makeConstraints {
+        locationView.snp.makeConstraints {
             $0.top.equalTo(descriptionWeatherView.snp.bottom).offset(16)
             $0.left.equalToSuperview().inset(16)
         }
@@ -96,4 +97,16 @@ class MainViewController: BaseViewController {
 //TODO: MainViewProtocol
 extension MainViewController: MainViewProtocol {
     
+    func updateData() {
+        guard let model = presenter.weatherData else { return }
+        
+        descriptionWeatherView.setData(model: model)
+        locationView.setData(model: model)
+        
+        let peripd = Date().getDayPeriod(
+            timezone: model.timezone ?? "",
+            sunrise: model.sunrise ?? "",
+            sunset: model.sunset ?? "")
+        backgroundImage.image = UIImage(named: peripd.rawValue)
+    }
 }

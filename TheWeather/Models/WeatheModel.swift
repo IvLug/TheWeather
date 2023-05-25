@@ -12,13 +12,22 @@ struct WeatherResponse: Codable {
 }
 
 struct Weather: Codable {
-    let temp: Double?
-    let city_name: String?
-    let wind_spd: Double?
-    let wind_cdir_full: String?
-    let wind_cdir: String?
-    let sunrise: String?
-    let timezone: String?
-    let clouds: Int?
-    let weather: WeatherDetail?
+    var temp: Double? = 17.2
+    var cityName: String? = "Raleigh"
+    var windSpeed: Double? = 1.34
+    var windCdirFull: String? = "west-northwest"
+    var windCdir: String? = "WNW"
+    var sunrise: String? = "10:02"
+    var sunset: String? = "20:04"
+    var timezone: String? = "America/New_York"
+    var clouds: Int? = 86
+    var pod: String? = "d"
+    var weather: WeatherDetail? = WeatherDetail()
+    
+    enum CodingKeys: String, CodingKey {
+        case cityName = "city_name"
+        case windSpeed = "wind_speed"
+        case windCdir = "wind_cdir"
+        case windCdirFull = "wind_cdir_full"
+    }
 }

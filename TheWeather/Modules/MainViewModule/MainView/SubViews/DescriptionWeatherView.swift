@@ -26,11 +26,11 @@ enum DescriptionWeatherType: CaseIterable {
     var mocText: String {
         switch self {
         case .sunset:
-            return "03:55"
+            return "00:00"
         case .wind:
-            return "4.12 m/s"
+            return "0.00"
         case .rein:
-            return "100 %"
+            return "100"
         }
     }
 }
@@ -52,7 +52,7 @@ final class DescriptionWeatherView: UIView {
     private lazy var tempLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.systemFont(ofSize: 26, weight: .medium)
-        view.text = "19.1°"
+        view.text = "0.0°"
         view.textColor = .white
         return view
     }()
@@ -78,6 +78,8 @@ final class DescriptionWeatherView: UIView {
         view.backgroundColor = .white
         return view
     }()
+    
+    private var stackLabels = [DescriptionWeatherType : UILabel]()
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -167,6 +169,7 @@ final class DescriptionWeatherView: UIView {
             }
            
             stack.addArrangedSubview(containerView)
+            stackLabels[type] = label
             containerView.snp.makeConstraints {
                 $0.width.equalTo(50)
             }
@@ -175,8 +178,20 @@ final class DescriptionWeatherView: UIView {
 }
 
 extension DescriptionWeatherView {
-    func setData() {
+    func setData(model: Weather) {
+        tempLabel.text = "\(model.temp ?? 0)°"
+        skyInfoLabel.text = model.weather?.description
         
+        stackLabels.forEach { type, label in
+            switch type {
+            case .sunset:
+                label.text = model.sunset
+            case .wind:
+                label.text = "\(model.windSpeed ?? 0) m/s"
+            case .rein:
+                label.text = "\(model.clouds ?? 0) %"
+            }
+        }
     }
 }
 
