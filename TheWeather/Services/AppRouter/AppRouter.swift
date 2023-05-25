@@ -22,7 +22,7 @@ final class AppRouter: AppRouterType {
     }
     
     private func configure() {
-        addPresenter.callBack = {  [weak self] in
+        addPresenter.callBack = { [weak self] in
             guard let self = self else { return }
             self.showMainFlow()
         }

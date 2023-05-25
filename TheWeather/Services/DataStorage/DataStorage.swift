@@ -16,9 +16,16 @@ final class DataStorage {
     
     private init() {}
     
+    var updatedDataCallBack: EmptyClosure?
+    
     var forecastData: WeatherForecastResponse?
     var currentWeatherData: WeatherResponse?
-
     var currentCity: String?
+}
+
+extension DataStorage {
     
+    func updatedData() {
+        updatedDataCallBack?()
+    }
 }

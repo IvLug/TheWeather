@@ -12,6 +12,8 @@ class TabBarViewController: UIViewController {
     
     private weak var currentController: UIViewController?
     
+    weak var presenter: ApplicationPresenterProtocol?
+    
     var items = [TabBarItem]()
     
     private lazy var customTabBar: CustomTabBar = {
@@ -103,6 +105,7 @@ extension TabBarViewController: TabBarItemViewProtocol {
         case .location:
             guard let item = items.first(where: { $0.index == .main }) else { return }
             open(item.controller)
+            presenter?.reloadData()
         default:
             guard let item = items.first(where: { $0.index == model.index }) else { return }
             open(item.controller)
@@ -126,7 +129,7 @@ extension TabBarViewController {
         view.addSubview(controller.view)
         view.sendSubviewToBack(controller.view)
         
-        currentController!.view.snp.makeConstraints {
+        currentController?.view.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         

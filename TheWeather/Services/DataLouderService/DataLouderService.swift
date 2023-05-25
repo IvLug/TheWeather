@@ -25,7 +25,7 @@ final class DataLouderService {
 
 extension DataLouderService {
         
-    func loadData(completion: (() -> Void)? = nil) {
+    func loadData(isUpdate: Bool = false, completion: (() -> Void)? = nil) {
        
         guard let cerrentCity = dataStorage.currentCity?.lowercased() else {
             completion?()
@@ -46,8 +46,9 @@ extension DataLouderService {
         
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
-            self.delegate?.dataDidLoad()
             completion?()
+            guard !isUpdate else { return }
+            self.delegate?.dataDidLoad()
         }
     }
 }

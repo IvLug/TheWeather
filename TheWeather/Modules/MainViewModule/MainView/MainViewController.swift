@@ -24,10 +24,10 @@ class MainViewController: BaseViewController {
     
     private lazy var searchInput: CustomSearchInput = {
         let view = CustomSearchInput(
-            placeholder: "City Name") { text in
-                print(text)
-            } searchTapped: {
-                print("Search")
+            placeholder: "City Name") { [weak presenter] text in
+                presenter?.searchData = text
+            } searchTapped: { [weak presenter] in
+                presenter?.search()
             }
         view.isUserInteractionEnabled = true
         return view

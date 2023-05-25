@@ -10,9 +10,8 @@ import UIKit
 final class TabBarAssembly: ModuleAssembly {
     
     var view: UIViewController
-//
-//    lazy var presenter = TabBarPresenter()
-//    lazy var router = LaunchScreenRouter()
+
+    var presenter: ApplicationPresenterProtocol = ApplicationPresenter()
     
     private init() {
         view = UIViewController()
@@ -24,13 +23,7 @@ final class TabBarAssembly: ModuleAssembly {
         let view = TabBarViewController()
         
         assembly.view = view
-        
-//        view.presenter = assembly.presenter
-//                
-//        assembly.presenter.view = view
-//        assembly.presenter.router = assembly.router
-//        
-//        assembly.router.view = view
+        view.presenter = assembly.presenter
 
         guard navigation else { return assembly }
         
@@ -41,3 +34,4 @@ final class TabBarAssembly: ModuleAssembly {
         return assembly
     }
 }
+//  <+55.75578600,+37.61763300> +/- 5.00m (speed -1.00 mps / course -1.00) @ 5/25/23, 8:24:54 PM Georgia Standard Time

@@ -7,6 +7,10 @@
 
 import Foundation
 
+protocol ApplicationPresenterProtocol: AnyObject {
+    func reloadData()
+}
+
 class ApplicationPresenter {
     
     var callBack: EmptyClosure?
@@ -27,6 +31,22 @@ class ApplicationPresenter {
                 self.dataLouder.loadData()
             }
         }
+        
+        locationService.isUpdateLocate = { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.global(qos: .userInitiated).async {
+                self.dataLouder.loadData(isUpdate: true) {
+                    self.dataStorage.updatedData()
+                }
+            }
+        }
+    }
+}
+
+extension ApplicationPresenter: ApplicationPresenterProtocol {
+    
+    func reloadData() {
+        locationService.updateLocate()
     }
 }
 
