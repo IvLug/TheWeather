@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainRouterProtocol: AnyObject {
-    
+    func showError(errorType: ErrorType)
 }
 
 final class MainRouter {
@@ -18,4 +18,10 @@ final class MainRouter {
 
 extension MainRouter: MainRouterProtocol {
     
+    func showError(errorType: ErrorType) {
+        view?.showAlert(
+            title: errorType.error.localizedFailureReason,
+            message: errorType.error.localizedDescription,
+            okAction: { _ in })
+    }
 }

@@ -38,7 +38,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
-        guard status != .notDetermined else {
+        guard status != .notDetermined && status != .denied else {
+            isLoadLocate?(false)
             return
         }
         currentLocation = manager.location
@@ -46,7 +47,9 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
     private func getCity() {
-        guard let location = currentLocation else { return }
+        guard let location = currentLocation else {
+            updateLocate()
+            return }
         getPlace(for: location) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -61,6 +64,12 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
     func updateLocate() {
+        
+        guard authorizationStatus != .notDetermined && authorizationStatus != .denied else {
+            isLoadLocate?(false)
+            return
+        }
+        
         isUpdate = true
         locationManager.startUpdatingLocation()
     }

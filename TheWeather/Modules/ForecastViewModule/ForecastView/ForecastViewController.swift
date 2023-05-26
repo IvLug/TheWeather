@@ -44,7 +44,6 @@ class ForecastViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        presenter.viewDidLoad()
     }
     
     override func viewWillLayoutSubviews() {
@@ -54,6 +53,7 @@ class ForecastViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter.viewWillAppear()
         navigationController?.isNavigationBarHidden = true
     }
     
@@ -115,6 +115,15 @@ extension ForecastViewController: UITableViewDataSource {
 extension ForecastViewController: ForecastViewProtocol {
     
     func updateData() {
+        guard let model = presenter.weatherData else { return }
+        locationView.setData(model: model)
+        
+        let peripd = Date().getDayPeriod(
+            timezone: model.timezone ?? "",
+            sunrise: model.sunrise ?? "",
+            sunset: model.sunset ?? "")
+        backgroundImage.image = UIImage(named: peripd.rawValue)
+        
         tableView.reloadData()
     }
 }

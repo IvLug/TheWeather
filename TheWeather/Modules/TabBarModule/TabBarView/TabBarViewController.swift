@@ -10,7 +10,7 @@ import SnapKit
 
 class TabBarViewController: UIViewController {
     
-    private weak var currentController: UIViewController?
+    var currentController: UIViewController?
     
     var presenter: ApplicationPresenterProtocol?
     
@@ -104,6 +104,7 @@ extension TabBarViewController: TabBarItemViewProtocol {
         switch model.index {
         case .location:
             guard let item = items.first(where: { $0.index == .main }) else { return }
+            DataStorage.shared.clerCoreData()
             open(item.controller)
             presenter?.reloadData()
         default:

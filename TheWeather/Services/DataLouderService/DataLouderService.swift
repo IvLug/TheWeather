@@ -10,6 +10,8 @@ import Alamofire
 
 protocol DataLouderServiceDelegate: AnyObject {
     func dataDidLoad()
+    func processingData(type: ProcessingDataType)
+    func processingError(errorType: ErrorType)
 }
 
 final class DataLouderService {
@@ -25,12 +27,18 @@ final class DataLouderService {
 
 extension DataLouderService {
         
-    func loadData(completion: (() -> Void)? = nil) {
-        guard let cerrentCity = dataStorage.currentCity?.lowercased() else {
-            completion?()
+    func loadData(_ isUpdate: Bool = false) {
+        
+        if isUpdate && dataStorage.currentCity == nil {
+            delegate?.processingData(type: .update)
             return
         }
-       
+        
+        guard let cerrentCity = dataStorage.currentCity?.lowercased() else {
+            delegate?.processingError(errorType: .locationError)
+            return
+        }
+        
         let group = DispatchGroup()
         
         group.enter()
@@ -45,8 +53,7 @@ extension DataLouderService {
         
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
-            completion?()
-            self.delegate?.dataDidLoad()
+            self.delegate?.processingData(type: isUpdate ? .update : .api)
         }
     }
 }

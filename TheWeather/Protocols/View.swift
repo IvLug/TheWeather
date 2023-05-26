@@ -82,13 +82,17 @@ extension View {
     ) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: okTitle, style: .default, handler: okAction)
-        let cancelAction = UIAlertAction(title: cancelTitle, style: .destructive, handler: cancelAction)
-       
+        let okAction = UIAlertAction(title: okTitle, style: .default, handler: okAction)       
        
         alert.addAction(okAction)
-        alert.addAction(cancelAction)
         
+        guard cancelAction != nil else {
+            navigationController?.present(alert, animated: true)
+            return
+        }
+        
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .destructive, handler: cancelAction)
+        alert.addAction(cancelAction)
         navigationController?.present(alert, animated: true)
     }
 }

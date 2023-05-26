@@ -18,7 +18,7 @@ final class LocationView: UIView {
     private lazy var cityLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.systemFont(ofSize: 26, weight: .bold)
-        view.text = "Moscow"
+        view.text = "-----"
         view.textColor = .white
         return view
     }()
@@ -26,7 +26,7 @@ final class LocationView: UIView {
     private lazy var dateLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        view.text = "May 24, Wed, 11:24 AM"
+        view.text = "--- -, --, --:-- AM"
         view.textColor = .white
         return view
     }()
@@ -89,5 +89,10 @@ extension LocationView {
     func setData(model: Weather) {
         cityLabel.text = model.city_name
         dateLabel.text = Date().formateDateFull(timezone: model.timezone ?? "")
+    }
+    
+    func setMocData() {
+        cityLabel.text = "-----"
+        dateLabel.text = "--- -, --, --:-- AM"
     }
 }

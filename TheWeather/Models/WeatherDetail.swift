@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import CoreData
 
 struct WeatherDetail: Codable {
-    let description: String?
-    let icon: String?
+    var description: String?
+    var icon: String?
     
     func getIcon() -> String {
         
@@ -41,5 +42,16 @@ struct WeatherDetail: Codable {
         default:
             return "cloud"
         }
+    }
+}
+
+extension WeatherDetail {
+    
+    func caastToCoreData(context: NSManagedObjectContext) -> WeatherDetailStorage {
+        let model = WeatherDetailStorage(context: context)
+        model.icon = self.icon
+        model.descriptions = self.description
+        
+        return model
     }
 }

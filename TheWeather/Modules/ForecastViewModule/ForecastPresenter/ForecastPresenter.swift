@@ -8,7 +8,8 @@
 import Foundation
 
 protocol ForecastPresenterProtocol: AnyObject {
-    func viewDidLoad()
+    func viewWillAppear()
+    var weatherData: Weather? { get }
     var forecastWeatherData: [WeatherForecast] { get }
 }
 
@@ -19,6 +20,7 @@ class ForecastPresenter {
     
     private let dataStorage: DataStorage
     
+    var weatherData: Weather?
     var forecastWeatherData: [WeatherForecast] = []
     
     init() {
@@ -29,13 +31,14 @@ class ForecastPresenter {
 extension ForecastPresenter {
     
     func getDataFromStorage() {
-        forecastWeatherData = dataStorage.forecastData?.data ?? []
+        forecastWeatherData = (dataStorage.forecastData ?? []) ?? []
+        weatherData = dataStorage.currentWeatherData
     }
 }
 
 extension ForecastPresenter: ForecastPresenterProtocol {
     
-    func viewDidLoad() {
+    func viewWillAppear() {
         getDataFromStorage()
         view?.updateData()
     }

@@ -41,7 +41,7 @@ extension MainPresenter {
     }
     
    private func getDataFromStorage() {
-        weatherData = dataStorage.currentWeatherData?.data?.first
+        weatherData = dataStorage.currentWeatherData
     }
     
     private func updatedData() {
@@ -82,12 +82,13 @@ extension MainPresenter: MainPresenterProtocol {
             switch result {
             case .success(let success):
                 DispatchQueue.global().async {
-                    self.dataStorage.currentWeatherData = success
+                    self.dataStorage.currentWeatherData = success.data?.first
                 }
+                completion?()
             case .failure(let failure):
                 print(failure.localizedDescription)
+                self.router?.showError(errorType: .cityFoundError)
             }
-            completion?()
         }
     }
     
@@ -97,12 +98,12 @@ extension MainPresenter: MainPresenterProtocol {
             switch result {
             case .success(let success):
                 DispatchQueue.global().async {
-                    self.dataStorage.forecastData = success
+                    self.dataStorage.forecastData = success.data
                 }
+                completion?()
             case .failure(let failure):
                 print(failure.localizedDescription)
             }
-            completion?()
         }
     }
 }

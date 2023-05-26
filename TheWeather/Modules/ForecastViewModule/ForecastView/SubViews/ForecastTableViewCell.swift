@@ -101,7 +101,6 @@ extension ForecastTableViewCell {
     
     func setData(model: WeatherForecast) {
         let imageName = model.weather?.getIcon()
-        let dateTS = model.ts
         
         weatherImage.image = UIImage(systemName: imageName ?? "")
         weatherTemp.text = "\(model.temp ?? 0)°"

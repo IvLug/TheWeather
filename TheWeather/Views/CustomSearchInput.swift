@@ -89,6 +89,7 @@ final class CustomSearchInput: UIView {
     }
     
     @objc func searchTapped() {
+        searchInput.text = ""
         searchTappedVoid?()
     }
     

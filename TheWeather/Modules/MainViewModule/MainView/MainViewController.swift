@@ -98,7 +98,12 @@ class MainViewController: BaseViewController {
 extension MainViewController: MainViewProtocol {
     
     func updateData() {
-        guard let model = presenter.weatherData else { return }
+        guard let model = presenter.weatherData else {
+            descriptionWeatherView.setMocData()
+            locationView.setMocData()
+            backgroundImage.image = UIImage(named: "day")
+            return
+        }
         
         descriptionWeatherView.setData(model: model)
         locationView.setData(model: model)
