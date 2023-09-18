@@ -14,8 +14,15 @@ extension NSError {
                 userInfo: [NSLocalizedDescriptionKey: message])
     }
 
-    static func error(title: String, message: String, code: Int = 0, payload: [String: Any]? = nil) -> NSError {
-        var mutableUserInfo: [String : Any] = [NSLocalizedDescriptionKey: message, NSLocalizedFailureReasonErrorKey: title]
+    static func error(
+        title: String,
+        message: String,
+        code: Int = 0,
+        payload: [String: Any]? = nil) -> NSError {
+        var mutableUserInfo: [String : Any] = [
+            NSLocalizedDescriptionKey: message,
+            NSLocalizedFailureReasonErrorKey: title
+        ]
 
         if let p = payload {
             p.keys.forEach({

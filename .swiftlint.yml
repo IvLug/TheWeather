@@ -28,8 +28,8 @@ force_try:
 # rules that have both warning and error levels, can set just the warning level
 # implicitly
 line_length:
-  warning: 80
-  error: 100
+  warning: 110
+  error: 150
 # they can set both implicitly with an array
 type_body_length:
   - 300 # warning

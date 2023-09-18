@@ -82,6 +82,8 @@ extension APIRouter {
     }
 
     private func queryItems(by parameters: [String: CustomStringConvertible]?) -> [URLQueryItem]? {
-        return parameters?.filter({!($0.value is Data)}).compactMap({ URLQueryItem(name: $0.key, value: $0.value.description) })
+        return parameters?
+            .filter({!($0.value is Data)})
+            .compactMap({ URLQueryItem(name: $0.key, value: $0.value.description) })
     }
 }

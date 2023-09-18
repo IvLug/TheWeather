@@ -13,7 +13,10 @@ extension UIApplication {
         if let nav = UIApplication.shared.currentUIWindow?.rootViewController as? UINavigationController {
             nav.viewControllers = [vc]
         } else {
-            UIApplication.shared.currentUIWindow?.rootViewController = UINavigationController(rootViewController: vc)
+            UIApplication
+                .shared
+                .currentUIWindow?
+                .rootViewController = UINavigationController(rootViewController: vc)
             UIApplication.shared.currentUIWindow?.makeKeyAndVisible()
         }
     }

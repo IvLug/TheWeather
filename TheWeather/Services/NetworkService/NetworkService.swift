@@ -18,14 +18,18 @@ final class NetworkService: RequestInterceptor {
     private init() {}
 
     @discardableResult
-    public func performRequest<T:Decodable>(route: APIRouter,
-                                            completion: @escaping (Result<T, AFError>) -> Void) -> DataRequest? {
+    public func performRequest<T:Decodable>(
+        route: APIRouter,
+        completion: @escaping (Result<T, AFError>) -> Void) -> DataRequest? {
         if route.method == .get {
             guard let url = try? route.path.asURL() else {
                 print("LOG: - Can't build Request with path \(route.path)")
                 return nil
             }
-            let eng = URLEncoding(destination: .queryString, arrayEncoding: .noBrackets, boolEncoding: .literal)
+            let eng = URLEncoding(
+                destination: .queryString,
+                arrayEncoding: .noBrackets,
+                boolEncoding: .literal)
             return AF.request(url,
                               method: route.method,
                               parameters: route.parameters,

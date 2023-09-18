@@ -22,7 +22,8 @@ final class TestForecastPresenter: XCTestCase {
         print("tearDownWithError")
         sut = nil
         try super.tearDownWithError()
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        // Put teardown code here.
+        // This method is called after the invocation of each test method in the class.
     }
 
     func testExample() throws {
@@ -31,7 +32,8 @@ final class TestForecastPresenter: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         // Any test you write for XCTest can be annotated as throws and async.
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        // Mark your test async to allow awaiting for asynchronous code to complete.
+        // Check the results with assertions afterwards.
     }
 
     func testPerformanceExample() throws {

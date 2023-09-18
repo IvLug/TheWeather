@@ -14,10 +14,15 @@ extension UIViewController {
 
     var navigationControllerType: TabBarItemIndex {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.navigationControllerTypeKey) as? TabBarItemIndex ?? .none
+            return objc_getAssociatedObject(
+                self,
+                &AssociatedKeys.navigationControllerTypeKey
+            ) as? TabBarItemIndex ?? .none
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.navigationControllerTypeKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(
+                self, &AssociatedKeys.navigationControllerTypeKey,
+                newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 

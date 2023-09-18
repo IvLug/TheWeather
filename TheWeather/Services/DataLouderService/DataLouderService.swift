@@ -96,12 +96,16 @@ extension DataLouderService {
 
 extension DataLouderService {
 
-    private func getCurrentWeather(cityName: String, completion: @escaping ((Result<WeatherResponse, AFError>) -> Void)) {
+    private func getCurrentWeather(
+        cityName: String,
+        completion: @escaping ((Result<WeatherResponse, AFError>) -> Void)) {
         let route = WeatherNetworkRouter.currentWeather(cityName: cityName)
         NetworkService.shared.performRequest(route: route, completion: completion)
     }
 
-    private func getDeylyWeather(cityName: String, completion: @escaping ((Result<WeatherForecastResponse, AFError>) -> Void)) {
+    private func getDeylyWeather(
+        cityName: String,
+        completion: @escaping ((Result<WeatherForecastResponse, AFError>) -> Void)) {
         let route = WeatherNetworkRouter.dailyWeather(cityName: cityName)
         NetworkService.shared.performRequest(route: route, completion: completion)
     }

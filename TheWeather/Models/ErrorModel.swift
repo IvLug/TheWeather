@@ -18,7 +18,8 @@ enum ErrorType {
 
         switch self {
         case .apiDataEmpty:
-            return NSError.error(title: "Oops", message: "Failed to load data from server. Data may not be accurate.")
+            return NSError.error(title: "Oops",
+                                 message: "Failed to load data from server. Data may not be accurate.")
         case .coreDataEmpty:
             return NSError.error(title: "Oops", message: "Failed to load local data.")
         case .allEmpty:
