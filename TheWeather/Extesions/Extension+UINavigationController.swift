@@ -11,7 +11,7 @@ extension UIViewController {
     private struct AssociatedKeys {
         static var navigationControllerTypeKey = "navigationControllerTypeKey"
     }
-    
+
     var navigationControllerType: TabBarItemIndex {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.navigationControllerTypeKey) as? TabBarItemIndex ?? .none
@@ -20,13 +20,13 @@ extension UIViewController {
             objc_setAssociatedObject(self, &AssociatedKeys.navigationControllerTypeKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
-    
+
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    
+
     @objc public func dismissKeyboard() {
         view.endEditing(true)
     }

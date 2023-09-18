@@ -7,8 +7,8 @@
 
 import UIKit
 
-extension UIView{
-    
+extension UIView {
+
     func rotate(repeatCount: Float = Float.greatestFiniteMagnitude, duration: CFTimeInterval = 1) {
         let rotation: CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotation.toValue = CGFloat(.pi * 2.0)
@@ -17,7 +17,7 @@ extension UIView{
         rotation.repeatCount = repeatCount
         self.layer.add(rotation, forKey: "rotationAnimation")
     }
-    
+
     func addShadow(color shadowColor: UIColor = UIColor(white: 0.0, alpha: 0.3),
                    opacity _opacity: Float = 0.3,
                    radius _radius: CGFloat = 5.0,
@@ -30,4 +30,3 @@ extension UIView{
         self.layer.shadowRadius = _radius
     }
 }
-

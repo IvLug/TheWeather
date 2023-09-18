@@ -13,14 +13,14 @@ protocol TabBarItemViewProtocol: AnyObject {
 }
 
 final class CustomTabBar: UIView {
-    
+
     var items = [TabBarItem]() {
         didSet { reloadData() }
     }
-    
+
     var itemViews = [BaseTabbarItem]()
     weak var delegate: TabBarItemViewProtocol?
-    
+
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.alignment = .center
@@ -28,39 +28,39 @@ final class CustomTabBar: UIView {
         stackView.distribution = .fillEqually
         return stackView
     }()
-    
+
     private lazy var button: UIButton = {
         let view = UIButton()
         view.addTarget(self, action: #selector(butonTouched(button:)), for: .touchUpInside)
         view.backgroundColor = .brandOrange
         return view
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     private func configure() {
         addSubViews()
         setConstraints()
         backgroundColor = .brandLightGray
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         button.layer.cornerRadius = button.bounds.width / 2
         button.addShadow(color: .black, shadowOffset: CGSize(width: 2, height: 2))
     }
-    
+
     private func addSubViews() {
         addSubview(stackView)
     }
-    
+
     private func setConstraints() {
         stackView.snp.makeConstraints {
             $0.leading.trailing.top.equalToSuperview()
@@ -69,20 +69,20 @@ final class CustomTabBar: UIView {
 }
 
 extension CustomTabBar {
-    
+
     private func reloadData() {
         itemViews.forEach({ $0.removeFromSuperview() })
         itemViews.removeAll()
-        
+
         for item in items {
             processedTabbarItemType(item: item)
         }
     }
-    
+
     private func processedTabbarItemType(item: TabBarItem) {
-        
+
         var itemView: BaseTabbarItem
-        
+
         switch item.index {
         case .location:
             itemView = BaseTabbarItem()
@@ -97,14 +97,14 @@ extension CustomTabBar {
             itemView = TabbarItem(model: item)
             itemView.delegate = self
         }
-        
+
         stackView.addArrangedSubview(itemView)
         itemViews.append(itemView)
     }
-    
+
     @objc func butonTouched(button: UIButton) {
         guard let model = items.first(where: { $0.index == .location }) else { return }
-        
+
         button.rotate(repeatCount: 1, duration: 0.3)
         UIView.animate(withDuration: 0.3,
                        animations: {
@@ -116,7 +116,7 @@ extension CustomTabBar {
         })
         tabBarItemViewDidTouched(model: model)
     }
-    
+
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         guard !clipsToBounds && !isHidden && alpha > 0 else { return nil }
         return self.button.frame.contains(point) ? self.button : super.hitTest(point, with: event)
@@ -124,7 +124,7 @@ extension CustomTabBar {
 }
 
 extension CustomTabBar: TabBarItemViewProtocol {
-    
+
     func tabBarItemViewDidTouched(model: TabBarItem) {
         itemViews.forEach { view in
             switch model.index {

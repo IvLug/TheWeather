@@ -14,17 +14,17 @@ protocol MainPresenterProtocol: AnyObject {
     var searchData: String? { get set }
     func search()
 }
-//Raleigh
+// Raleigh
 class MainPresenter {
-    
+
     weak var view: MainViewProtocol?
     var router: MainRouterProtocol?
-    
+
     private let dataStorage: DataStorage
-    
+
     var weatherData: Weather?
     var searchData: String?
-    
+
     init() {
         self.dataStorage = DataStorage.shared
         configure()
@@ -32,18 +32,18 @@ class MainPresenter {
 }
 
 extension MainPresenter {
-    
+
     private func configure() {
         dataStorage.updatedDataCallBack = { [weak self] in
             guard let self = self else { return }
             self.updatedData()
         }
     }
-    
+
    private func getDataFromStorage() {
         weatherData = dataStorage.currentWeatherData
     }
-    
+
     private func updatedData() {
         getDataFromStorage()
         view?.updateData()
@@ -51,31 +51,31 @@ extension MainPresenter {
 }
 
 extension MainPresenter: MainPresenterProtocol {
-    
+
     func viewDidLoad() {
         updatedData()
     }
-    
+
     func search() {
         guard let cityName = searchData else { return }
         let group = DispatchGroup()
-        
+
         group.enter()
         fetchCurrentWeather(city: cityName) {
             group.leave()
         }
-        
+
         group.enter()
         fetchDeylyWeather(city: cityName) {
             group.leave()
         }
-        
+
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
             self.updatedData()
         }
     }
-    
+
     private func fetchCurrentWeather(city: String, completion: (() -> Void)? = nil) {
         getCurrentWeather(cityName: city) { [weak self] result in
             guard let self = self else { return }
@@ -91,7 +91,7 @@ extension MainPresenter: MainPresenterProtocol {
             }
         }
     }
-    
+
     private func fetchDeylyWeather(city: String, completion: (() -> Void)? = nil) {
         getDeylyWeather(cityName: city) { [weak self]  result in
             guard let self = self else { return }
@@ -108,14 +108,14 @@ extension MainPresenter: MainPresenterProtocol {
     }
 }
 
-//TODO: - Build Request
+// MARK: - Build Request
 extension MainPresenter {
-    
+
     private func getCurrentWeather(cityName: String, completion: @escaping ((Result<WeatherResponse, AFError>) -> Void)) {
         let route = WeatherNetworkRouter.currentWeather(cityName: cityName)
         NetworkService.shared.performRequest(route: route, completion: completion)
     }
-    
+
     private func getDeylyWeather(cityName: String, completion: @escaping ((Result<WeatherForecastResponse, AFError>) -> Void)) {
         let route = WeatherNetworkRouter.dailyWeather(cityName: cityName)
         NetworkService.shared.performRequest(route: route, completion: completion)

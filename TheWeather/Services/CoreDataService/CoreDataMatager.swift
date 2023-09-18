@@ -9,27 +9,27 @@ import Foundation
 import CoreData
 
 class StorageManager {
-    
+
     static let shared = StorageManager()
-    
+
     let persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "TheWeather")
-        container.loadPersistentStores { storeDescriprion, error in
+        container.loadPersistentStores { _, error in
             if let error = error as NSError? {
                 fatalError("Unreserved error \(error), \(error.userInfo)")
             }
         }
         return container
     }()
-    
+
     var viewContext: NSManagedObjectContext
-        
+
     private init() {
         viewContext = persistentContainer.viewContext
     }
-    
+
     public func fetchData<T: NSManagedObject>(completion: (Result<[T], Error>) -> Void) {
-        
+
         let fetchRequest: NSFetchRequest<T> = T().fetchRequest()
         do {
             let data = try viewContext.fetch(fetchRequest)
@@ -38,20 +38,20 @@ class StorageManager {
             completion(.failure(error))
         }
     }
-    
+
     public func save<T: NSManagedObject>(model: T) {
         saveContext()
     }
-    
+
     public func edit<T: NSManagedObject>(model: T) {
         saveContext()
     }
-    
+
     public func delete<T: NSManagedObject>(data: T) {
         viewContext.delete(data)
         saveContext()
     }
-    
+
     public func clearCoreData() {
         let entities = self.persistentContainer.managedObjectModel.entities
         entities
@@ -69,14 +69,14 @@ class StorageManager {
                 try context.execute(deleteRequest)
                 try context.save()
             } catch {
-                print ("There was an error")
+                print("There was an error")
         }
     }
-    
+
     // MARK: - Core Data Saving Support
     private func saveContext() {
         guard viewContext.hasChanges else { return }
-        
+
             do {
                 try viewContext.save()
             } catch {
@@ -87,7 +87,7 @@ class StorageManager {
 }
 
 extension NSManagedObject {
-    
+
     func fetchRequest<T>() -> NSFetchRequest<T> {
         return NSFetchRequest<T>(entityName: String(describing: T.self))
     }

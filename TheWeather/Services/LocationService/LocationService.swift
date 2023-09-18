@@ -11,15 +11,15 @@ import CoreLocation
 class LocationService: NSObject, CLLocationManagerDelegate {
     private var locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
-    
+
     lazy var isLoadLocate: BoolVoid? = nil
-    
+
     private var isUpdate = false
-    
+
      var authorizationStatus: CLAuthorizationStatus {
         CLLocationManager.authorizationStatus()
     }
-        
+
     static let shared: LocationService = {
         LocationService()
     }()
@@ -28,16 +28,16 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         super.init()
         configure()
     }
-    
+
     private func configure() {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.allowsBackgroundLocationUpdates = false
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        
+
         guard status != .notDetermined && status != .denied else {
             isLoadLocate?(false)
             return
@@ -45,7 +45,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         currentLocation = manager.location
         getCity()
     }
-    
+
     private func getCity() {
         guard let location = currentLocation else {
             updateLocate()
@@ -62,18 +62,18 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             }
         }
     }
-    
+
     func updateLocate() {
-        
+
         guard authorizationStatus != .notDetermined && authorizationStatus != .denied else {
             isLoadLocate?(false)
             return
         }
-        
+
         isUpdate = true
         locationManager.startUpdatingLocation()
     }
- 
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard isUpdate else { return }
         isUpdate = false
@@ -84,18 +84,17 @@ class LocationService: NSObject, CLLocationManagerDelegate {
 }
 
 extension LocationService {
-    
+
     func getPlace(for location: CLLocation,
                   completion: @escaping(Result<CLPlacemark?, Error>) -> Void) {
         let geocoder = CLGeocoder()
-       
-        
+
         geocoder.reverseGeocodeLocation(location) { placemarks, error in
             if let error = error {
                 completion(.failure(error))
                 return
             }
-            
+
             guard let placemark = placemarks?.first else {
                 let errorPlacemark = NSError.error("Placemark is not found")
                 completion(.failure(errorPlacemark))

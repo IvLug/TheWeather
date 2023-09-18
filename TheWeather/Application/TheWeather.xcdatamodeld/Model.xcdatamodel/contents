@@ -9,7 +9,6 @@
         <attribute name="wind_cdir" optional="YES" attributeType="String"/>
         <attribute name="wind_cdir_full" optional="YES" attributeType="String"/>
         <attribute name="wind_speed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDetailStorage"/>
     </entity>
     <entity name="WeatherDetailStorage" representedClassName="WeatherDetailStorage" syncable="YES">
         <attribute name="descriptions" optional="YES" attributeType="String"/>
@@ -26,6 +25,5 @@
         <attribute name="wind_cdir" optional="YES" attributeType="String"/>
         <attribute name="wind_cdir_full" optional="YES" attributeType="String"/>
         <attribute name="wind_speed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDetailStorage"/>
     </entity>
 </model>

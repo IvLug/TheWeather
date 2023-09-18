@@ -8,5 +8,6 @@ target 'TheWeather' do
   # Pods for TheWeather
   pod 'SnapKit'
   pod 'Alamofire'
+  pod 'SwiftLint'
 
 end

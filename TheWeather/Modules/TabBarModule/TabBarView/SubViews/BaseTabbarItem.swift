@@ -12,13 +12,13 @@ class BaseTabbarItem: UIView {
     weak var delegate: TabBarItemViewProtocol?
     var model: TabBarItem?
     var shouldBeSelected: Bool = false
-    
+
     lazy var imageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         return view
     }()
-    
+
     lazy var title: UILabel = {
         let label = UILabel()
         label.textColor = .lightGray
@@ -26,7 +26,7 @@ class BaseTabbarItem: UIView {
         label.font = UIFont.systemFont(ofSize: 11, weight: .medium)
         return label
     }()
-    
+
     func setSelected() {
         guard let model = self.model else { return }
         if shouldBeSelected {

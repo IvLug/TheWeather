@@ -13,9 +13,9 @@ enum ErrorType {
     case allEmpty
     case locationError
     case cityFoundError
-    
+
     var error: NSError {
-        
+
         switch self {
         case .apiDataEmpty:
             return NSError.error(title: "Oops", message: "Failed to load data from server. Data may not be accurate.")
@@ -29,7 +29,7 @@ enum ErrorType {
             return NSError.error(title: "Oops", message: "city not found.")
         }
     }
-    
+
     var succeseButtonTitle: String {
         switch self {
         case .locationError:
@@ -37,7 +37,7 @@ enum ErrorType {
         default: return "Ok"
         }
     }
-    
+
     var cancelButtonTitle: String {
         return "Cancel"
     }

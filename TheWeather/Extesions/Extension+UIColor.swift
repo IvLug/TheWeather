@@ -8,19 +8,19 @@
 import UIKit
 
 extension UIColor {
-    
+
     class var brandLightGray: UIColor {
        UIColor(hexString: "#EFEFF4")
     }
-    
+
     class var brandOrange: UIColor {
         UIColor(hexString: "#FF8A05")
     }
-    
+
     class var brandTintColorGray: UIColor {
         UIColor(hexString: "#555969")
     }
-    
+
     convenience init(hexString: String, alpha: Double = 1.0) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt32()
@@ -41,4 +41,3 @@ extension UIColor {
                   alpha: CGFloat(255.0 * alpha) / 255.0)
     }
 }
-

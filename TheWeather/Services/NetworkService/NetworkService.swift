@@ -9,14 +9,14 @@ import Foundation
 import Alamofire
 
 final class NetworkService: RequestInterceptor {
-    
+
     static let shared: NetworkService = {
         let instance = NetworkService()
         return instance
     }()
-    
+
     private init() {}
-    
+
     @discardableResult
     public func performRequest<T:Decodable>(route: APIRouter,
                                             completion: @escaping (Result<T, AFError>) -> Void) -> DataRequest? {

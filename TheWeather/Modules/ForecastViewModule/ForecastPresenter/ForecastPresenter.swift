@@ -14,30 +14,34 @@ protocol ForecastPresenterProtocol: AnyObject {
 }
 
 class ForecastPresenter {
-    
+
     weak var view: ForecastViewProtocol?
     var router: ForecastRouterProtocol?
-    
+
     private let dataStorage: DataStorage
-    
+
     var weatherData: Weather?
     var forecastWeatherData: [WeatherForecast] = []
-    
+
     init() {
         self.dataStorage = DataStorage.shared
     }
 }
 
 extension ForecastPresenter {
-    
+
     func getDataFromStorage() {
-        forecastWeatherData = (dataStorage.forecastData ?? []) ?? []
+        forecastWeatherData = (dataStorage.forecastData ?? [])
         weatherData = dataStorage.currentWeatherData
+    }
+
+    func testTrue() -> Bool {
+        return false
     }
 }
 
 extension ForecastPresenter: ForecastPresenterProtocol {
-    
+
     func viewWillAppear() {
         getDataFromStorage()
         view?.updateData()

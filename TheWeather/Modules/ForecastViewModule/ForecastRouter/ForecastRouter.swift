@@ -8,14 +8,12 @@
 import UIKit
 
 protocol ForecastRouterProtocol: AnyObject {
-    
+
 }
 
 final class ForecastRouter {
-    
+
     weak var view: ForecastViewProtocol?
 }
 
-extension ForecastRouter: ForecastRouterProtocol {
-    
-}
+extension ForecastRouter: ForecastRouterProtocol {}

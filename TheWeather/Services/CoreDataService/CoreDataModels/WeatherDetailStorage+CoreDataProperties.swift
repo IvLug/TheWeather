@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-
 extension WeatherDetailStorage {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<WeatherDetailStorage> {
@@ -22,12 +21,12 @@ extension WeatherDetailStorage {
 }
 
 extension WeatherDetailStorage : Identifiable {
-    
+
     func castToModel() -> WeatherDetail {
         var model = WeatherDetail()
         model.icon = self.icon
         model.description = self.description
-                
+
         return model
     }
 }

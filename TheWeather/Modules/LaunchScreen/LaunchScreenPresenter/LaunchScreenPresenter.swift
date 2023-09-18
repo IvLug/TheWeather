@@ -12,18 +12,13 @@ protocol LaunchScreenPresenterProtocol: AnyObject {
 }
 
 final class LaunchScreenPresenter {
-    
+
     weak var view: LaunchScreenViewProtocol?
     var router: LaunchScreenRouterProtocol?
-    
+
 }
 
-extension LaunchScreenPresenter: LaunchScreenPresenterProtocol {
-    
-}
+extension LaunchScreenPresenter: LaunchScreenPresenterProtocol {}
 
-//TODO: Routing
-extension LaunchScreenPresenter {
-    
-    
-}
+// MARK: Routing
+extension LaunchScreenPresenter {}
