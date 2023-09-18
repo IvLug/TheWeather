@@ -11,9 +11,9 @@ import CoreData
 struct WeatherDetail: Codable {
     var description: String?
     var icon: String?
-    
+
     func getIcon() -> String {
-        
+
         switch icon {
         case "t01d","t02d","t03d","t01n","t02n","t03n":
             return "cloud.bolt.rain"
@@ -46,12 +46,12 @@ struct WeatherDetail: Codable {
 }
 
 extension WeatherDetail {
-    
+
     func caastToCoreData(context: NSManagedObjectContext) -> WeatherDetailStorage {
         let model = WeatherDetailStorage(context: context)
         model.icon = self.icon
         model.descriptions = self.description
-        
+
         return model
     }
 }

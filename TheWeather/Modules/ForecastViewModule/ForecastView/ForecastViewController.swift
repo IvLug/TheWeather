@@ -12,21 +12,21 @@ protocol ForecastViewProtocol: View {
 }
 
 class ForecastViewController: BaseViewController {
-    
+
     var presenter: ForecastPresenterProtocol!
-    
+
     private lazy var locationView: LocationView = {
         let view = LocationView()
         return view
     }()
-    
+
     private lazy var backgroundImage: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.image = UIImage(named: "morning")
         return view
     }()
-    
+
     private lazy var tableView: UITableView = {
         let view = UITableView()
         view.delegate = self
@@ -45,39 +45,39 @@ class ForecastViewController: BaseViewController {
         super.viewDidLoad()
         configure()
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         setConstraints()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.viewWillAppear()
         navigationController?.isNavigationBarHidden = true
     }
-    
+
     private func configure() {
         addSubViews()
         view.backgroundColor = .clear
     }
-    
+
     private func addSubViews() {
         view.addSubview(backgroundImage)
         view.addSubview(locationView)
         view.addSubview(tableView)
     }
-    
+
     private func setConstraints() {
         backgroundImage.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
+
         locationView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).inset(16)
             $0.left.equalToSuperview().inset(16)
         }
-        
+
         let height = 7 * 42
         tableView.snp.makeConstraints {
             $0.width.equalToSuperview().inset(16)
@@ -88,24 +88,24 @@ class ForecastViewController: BaseViewController {
     }
 }
 
-//TODO: UITableViewDelegate
+// MARK: UITableViewDelegate
 extension ForecastViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+
     }
 }
 
-//TODO: UITableViewDataSource
+// MARK: UITableViewDataSource
 extension ForecastViewController: UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         presenter.forecastWeatherData.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ForecastTableViewCell = tableView.dequeueCell(at: indexPath)
-        
+
         let model = presenter.forecastWeatherData[indexPath.row]
         cell.setData(model: model)
         return cell
@@ -113,17 +113,17 @@ extension ForecastViewController: UITableViewDataSource {
 }
 
 extension ForecastViewController: ForecastViewProtocol {
-    
+
     func updateData() {
         guard let model = presenter.weatherData else { return }
         locationView.setData(model: model)
-        
+
         let peripd = Date().getDayPeriod(
             timezone: model.timezone ?? "",
             sunrise: model.sunrise ?? "",
             sunset: model.sunset ?? "")
         backgroundImage.image = UIImage(named: peripd.rawValue)
-        
+
         tableView.reloadData()
     }
 }

@@ -12,12 +12,12 @@ protocol MainRouterProtocol: AnyObject {
 }
 
 final class MainRouter {
-    
+
     weak var view: MainViewProtocol?
 }
 
 extension MainRouter: MainRouterProtocol {
-    
+
     func showError(errorType: ErrorType) {
         view?.showAlert(
             title: errorType.error.localizedFailureReason,

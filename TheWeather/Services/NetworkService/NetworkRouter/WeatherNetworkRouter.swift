@@ -9,24 +9,24 @@ import Foundation
 import Alamofire
 
 enum WeatherNetworkRouter: APIRouter {
-    
+
     case currentWeather(cityName: String)
     case dailyWeather(cityName: String)
-    
+
     var method: HTTPMethod {
         switch self {
         case .currentWeather, .dailyWeather:
             return .get
         }
     }
-    
+
     var headers: HTTPHeaders? {
         let headers: HTTPHeaders = [
             "Accept": "application/json"
         ]
         return headers
     }
-  
+
     var parameters: Parameters? {
         var params: Parameters = [:]
         switch self {
@@ -39,15 +39,15 @@ enum WeatherNetworkRouter: APIRouter {
         }
         return params
     }
-    
+
     var servicePath: String {
         return Constants.versionAPI
     }
-    
+
     var body: Data? {
         return nil
     }
-    
+
     var path: String {
         var path = ""
         switch self {

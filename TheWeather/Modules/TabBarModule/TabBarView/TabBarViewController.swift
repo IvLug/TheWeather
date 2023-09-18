@@ -9,19 +9,19 @@ import UIKit
 import SnapKit
 
 class TabBarViewController: UIViewController {
-    
+
     var currentController: UIViewController?
-    
+
     var presenter: ApplicationPresenterProtocol?
-    
+
     var items = [TabBarItem]()
-    
+
     private lazy var customTabBar: CustomTabBar = {
         let tabBar = CustomTabBar()
         tabBar.delegate = self
         return tabBar
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -32,16 +32,16 @@ class TabBarViewController: UIViewController {
         setConstraints()
         customTabBar.addShadow(color: .black, shadowOffset: CGSize(width: 2, height: 2))
     }
-    
+
     private func configure() {
         addSubViews()
         setupTabBarItems()
-        
+
         if let controller = customTabBar.items.first?.controller {
             open(controller)
         }
     }
-    
+
     private func addSubViews() {
         view.addSubview(customTabBar)
     }
@@ -55,15 +55,15 @@ class TabBarViewController: UIViewController {
 }
 
 extension TabBarViewController {
-    
+
     func setupTabBarItems() {
-        
+
         let selectedColor = UIColor.brandOrange
         let unselectedImageColor = UIColor.lightGray
-        
+
         let mainModule = MainScreenAssembly.assembly(navigation: true).view
         let forecastModule = ForecastScreenAssembly.assembly(navigation: true).view
-        
+
         let mainModel = TabBarItem(index: .main,
                                    title: "Main",
                                    image: UIImage(named: "1d"),
@@ -71,7 +71,7 @@ extension TabBarViewController {
                                    unselectedTintColor: unselectedImageColor,
                                    shouldBeSelected: true,
                                    controller: mainModule)
-        
+
         let forecast = TabBarItem(index: .forecast,
                                   title: "Forecast",
                                   image: UIImage(named: "1n"),
@@ -79,7 +79,7 @@ extension TabBarViewController {
                                   unselectedTintColor: unselectedImageColor,
                                   shouldBeSelected: false,
                                   controller: forecastModule)
-        
+
         let location = TabBarItem(index: .location,
                                   title: "",
                                   image: UIImage(named: "map-pin"),
@@ -87,7 +87,7 @@ extension TabBarViewController {
                                   unselectedTintColor: unselectedImageColor,
                                   shouldBeSelected: true,
                                   controller: mainModule)
-        
+
         items.append(contentsOf: [
             mainModel,
             location,
@@ -98,9 +98,9 @@ extension TabBarViewController {
 }
 
 extension TabBarViewController: TabBarItemViewProtocol {
-    
+
     func tabBarItemViewDidTouched(model: TabBarItem) {
-        
+
         switch model.index {
         case .location:
             guard let item = items.first(where: { $0.index == .main }) else { return }
@@ -115,25 +115,25 @@ extension TabBarViewController: TabBarItemViewProtocol {
 }
 
 extension TabBarViewController {
-    
+
     func open(_ controller: UIViewController) {
         if currentController == controller, currentController is UINavigationController {
             _ = (currentController as? UINavigationController)?.popToRootViewController(animated: true)
             return
         }
-        
+
         currentController?.view.removeFromSuperview()
         currentController?.removeFromParent()
         currentController = controller
-        
+
         addChild(controller)
         view.addSubview(controller.view)
         view.sendSubviewToBack(controller.view)
-        
+
         currentController?.view.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
+
         controller.view.autoresizingMask = [.flexibleWidth, .flexibleHeight,
                                             .flexibleTopMargin, .flexibleBottomMargin,
                                             .flexibleLeftMargin, .flexibleRightMargin]

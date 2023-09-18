@@ -7,60 +7,58 @@
 
 import UIKit
 
-protocol LaunchScreenViewProtocol: View {
-    
-}
+protocol LaunchScreenViewProtocol: View {}
 
 final class LaunchScreenView: BaseViewController {
-    
+
     var presenter: LaunchScreenPresenterProtocol!
-    
+
     private lazy var containerView: UIView = {
         let view = UIView()
         return view
     }()
-    
+
     private lazy var sunImageView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "1d")
         view.contentMode = .scaleAspectFit
         return view
     }()
-    
+
     private lazy var cloudView: UIImageView = {
         let view = UIImageView()
         view.image = UIImage(named: "5n")
         view.contentMode = .scaleAspectFit
         return view
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         setConstraints()
     }
-    
+
     override func loadView() {
         super.loadView()
         startAnimate()
     }
-    
+
     private func configure() {
         addSubViews()
         view.backgroundColor = .white
         navigationController?.isNavigationBarHidden = true
     }
-    
+
     private func addSubViews() {
         view.addSubview(containerView)
         containerView.addSubview(sunImageView)
         containerView.addSubview(cloudView)
     }
-    
+
     private func setConstraints() {
         containerView.snp.makeConstraints { make in
             make.centerX.centerY.equalToSuperview()
@@ -81,16 +79,14 @@ final class LaunchScreenView: BaseViewController {
 }
 
 extension LaunchScreenView {
-    
+
     func startAnimate() {
         sunImageView.rotate()
     }
-    
+
     func stopAnimate() {
         sunImageView.layer.removeAllAnimations()
     }
 }
 
-extension LaunchScreenView: LaunchScreenViewProtocol {
-    
-}
+extension LaunchScreenView: LaunchScreenViewProtocol {}

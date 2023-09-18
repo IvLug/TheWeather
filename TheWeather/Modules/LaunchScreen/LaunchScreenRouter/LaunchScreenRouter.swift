@@ -7,15 +7,11 @@
 
 import UIKit
 
-protocol LaunchScreenRouterProtocol: AnyObject {
-    
-}
+protocol LaunchScreenRouterProtocol: AnyObject {}
 
 final class LaunchScreenRouter {
-    
+
     weak var view: LaunchScreenViewProtocol?
 }
 
-extension LaunchScreenRouter: LaunchScreenRouterProtocol {
-    
-}
+extension LaunchScreenRouter: LaunchScreenRouterProtocol {}

@@ -13,7 +13,7 @@ protocol AppRouterProtocol {
 }
 
 final class AppRouter {
-    
+
     private(set) var window: UIWindow
     let addPresenter: ApplicationPresenter
 
@@ -22,10 +22,8 @@ final class AppRouter {
         addPresenter = ApplicationPresenter.shared
         addPresenter.router = self
         configure()
-        
-        
     }
-    
+
     private func configure() {
         addPresenter.callBack = { [weak self] in
             guard let self = self else { return }
@@ -35,7 +33,7 @@ final class AppRouter {
 }
 
 extension AppRouter: AppRouterProtocol {
-    
+
     func showRootScreen() {
         let mainModule = LaunchScreenAssembly.assembly(navigation: true).view
         window.rootViewController = mainModule
@@ -48,13 +46,13 @@ extension AppRouter: AppRouterProtocol {
         self.window.rootViewController = module.view
         self.window.makeKeyAndVisible()
     }
-    
+
     func showError(errorType: ErrorType) {
-        
+
          let view = getSelectedView()
-        
+
         var cancelAction: ActionVoid?
-        
+
         switch errorType {
         case .locationError:
             cancelAction = {  [weak self] _ in
@@ -62,13 +60,13 @@ extension AppRouter: AppRouterProtocol {
             }
         default: break
         }
-        
+
         view?.showAlert(
             title: errorType.error.localizedFailureReason,
             message: errorType.error.localizedDescription,
             okTitle: errorType.succeseButtonTitle,
             cancelTitle: errorType.cancelButtonTitle,
-            okAction: { [weak self] action in
+            okAction: { [weak self] _ in
                 switch errorType {
                 case .apiDataEmpty:
                     self?.showMainFlow()
@@ -79,21 +77,21 @@ extension AppRouter: AppRouterProtocol {
             },
             cancelAction: cancelAction)
     }
-    
+
     private func getSelectedView() -> View? {
         var view: View?
-        
+
         if let navBar = self.window.rootViewController as? UINavigationController,
-           var selectedView = navBar.topViewController as? View {
+           let selectedView = navBar.topViewController as? View {
             view = selectedView
         } else if let tabBar = self.window.rootViewController as? TabBarViewController,
                   let selectedView = tabBar.currentController as? View {
             view = selectedView
         }
-        
+
         return view
     }
-    
+
     func showUserSettings() {
         guard let urlGeneral = URL(string: UIApplication.openSettingsURLString) else {
             return

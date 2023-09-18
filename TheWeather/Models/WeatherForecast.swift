@@ -27,10 +27,10 @@ struct WeatherForecast: Codable {
 }
 
 extension WeatherForecast {
-    
+
     func caastToCoreData(context: NSManagedObjectContext) -> ForecastStorage {
         let model = ForecastStorage(context: context)
-        
+
         model.temp = self.temp ?? 0
         model.datetime = self.datetime
         model.wind_speed = self.wind_speed ?? 0
@@ -39,13 +39,13 @@ extension WeatherForecast {
         model.sunrise_ts = Int64(sunrise_ts ?? 0)
         model.sunset_ts = Int64(sunset_ts ?? 0)
         model.ts = Int64(ts ?? 0)
-        
+
         let weather = WeatherDetailStorage(context: context)
         weather.icon = self.weather?.icon
         weather.descriptions = self.weather?.description
-        
+
         model.weather = weather
-        
+
         return model
     }
 }
