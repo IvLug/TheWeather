@@ -27,7 +27,6 @@ final class TestForecastPresenter: XCTestCase {
     }
 
     func testExample() throws {
-        print("1")
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         // Any test you write for XCTest can be annotated as throws and async.
@@ -37,19 +36,22 @@ final class TestForecastPresenter: XCTestCase {
     }
 
     func testPerformanceExample() throws {
-        print("2")
         // This is an example of a performance test case.
         measure {
-            print("3")
-            // Put the code you want to measure the time of here.
+//            Это блок кода, который будет измеряться на производительность.
+//            Все, что находится внутри этого блока, будет выполнено несколько раз,
+//            и фреймворк XCTest замерит среднее время выполнения.
+//            В этом блоке вы можете поместить код, который вы хотите протестировать на производительность.
         }
     }
 
     func testTrue() throws {
 
+        // GIVEN
         let didReceiveResponce = expectation(description: #function)
         var result: [WeatherForecast]?
 
+        // WHEN
         DataStorage.shared.fetchAllData {
 
             XCTAssertNil(result, "Expected no errors loading a file.")
@@ -62,6 +64,7 @@ final class TestForecastPresenter: XCTestCase {
 
         wait(for: [didReceiveResponce], timeout: 8)
 
+        // THEN
         switch result {
         case _ where result?.isEmpty == true:
             XCTFail("Test failed result.isEmpty")
