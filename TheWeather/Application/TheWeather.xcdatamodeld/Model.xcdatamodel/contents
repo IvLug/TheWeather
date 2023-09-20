@@ -9,10 +9,13 @@
         <attribute name="wind_cdir" optional="YES" attributeType="String"/>
         <attribute name="wind_cdir_full" optional="YES" attributeType="String"/>
         <attribute name="wind_speed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDetailStorage" inverseName="forecast" inverseEntity="WeatherDetailStorage"/>
     </entity>
     <entity name="WeatherDetailStorage" representedClassName="WeatherDetailStorage" syncable="YES">
         <attribute name="descriptions" optional="YES" attributeType="String"/>
         <attribute name="icon" optional="YES" attributeType="String"/>
+        <relationship name="forecast" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ForecastStorage" inverseName="weather" inverseEntity="ForecastStorage"/>
+        <relationship name="weatherStorege" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherStorage" inverseName="weather" inverseEntity="WeatherStorage"/>
     </entity>
     <entity name="WeatherStorage" representedClassName="WeatherStorage" syncable="YES">
         <attribute name="city_name" optional="YES" attributeType="String"/>
@@ -25,5 +28,6 @@
         <attribute name="wind_cdir" optional="YES" attributeType="String"/>
         <attribute name="wind_cdir_full" optional="YES" attributeType="String"/>
         <attribute name="wind_speed" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDetailStorage" inverseName="weatherStorege" inverseEntity="WeatherDetailStorage"/>
     </entity>
 </model>

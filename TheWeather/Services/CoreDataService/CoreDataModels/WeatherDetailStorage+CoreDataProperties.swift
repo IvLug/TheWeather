@@ -17,6 +17,7 @@ extension WeatherDetailStorage {
 
     @NSManaged public var descriptions: String?
     @NSManaged public var icon: String?
+    @NSManaged public var forecast: ForecastStorage?
 
 }
 
