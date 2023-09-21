@@ -13,13 +13,11 @@ final class TestForecastPresenter: XCTestCase {
     var sut: ApplicationPresenter!
 
     override func setUpWithError() throws {
-        print("setUpWithError")
         sut = ApplicationPresenter.shared
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDownWithError() throws {
-        print("tearDownWithError")
         sut = nil
         try super.tearDownWithError()
         // Put teardown code here.

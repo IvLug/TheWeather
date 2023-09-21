@@ -54,9 +54,7 @@ extension DataLouderService {
         group.notify(queue: .main) { [weak self] in
             guard let self = self else { return }
             completion(true)
-            print("true")
             self.delegate?.processingData(type: isUpdate ? .update : .api)
-
         }
     }
 }
